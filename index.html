@@ -29,7 +29,7 @@ body{margin:0}
 .ni:hover{color:var(--deep)}.ni:hover svg{transform:translateY(-4px) rotate(-8deg)}
 .ni::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--or);margin-top:3px}
 .ni.cur{color:var(--deep)}.ni.cur::after{background:var(--deep);transform:scale(1.5)}
-.logo{width:358px;text-align:center;text-decoration:none;display:block}
+.logo{width:358px;text-align:center;text-decoration:none;display:block;position:relative}.lsun{position:absolute;left:-30px;top:-6px;width:46px;height:auto;animation:spin 60s linear infinite}@media(max-width:1000px){.lsun{display:none}}
 .logo b{display:block;white-space:nowrap;font:800 37px/1 var(--hf);color:var(--deep);text-shadow:2px 0 #fff,-2px 0 #fff,0 2px #fff,0 -2px #fff,2px 2px #fff,-2px -2px #fff,2px -2px #fff,-2px 2px #fff,0 4px 0 #fff}
 .logo i{display:inline-block;margin-top:7px;background:var(--or);color:#fff;font:700 10px/1 var(--hf);font-style:normal;letter-spacing:.14em;padding:7px 26px;clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%)}
 .util{display:flex;gap:18px;font:800 12px/1 Inter,sans-serif;justify-content:flex-end}
@@ -94,7 +94,7 @@ body{margin:0}
 @keyframes pn{50%{transform:rotate(6deg)}}
 /* polaroid */
 .pl{position:relative;background:#fff;padding:9px 9px 16px;border-radius:5px;box-shadow:0 10px 18px rgba(120,70,20,.22);transform:rotate(var(--r));transition:transform .35s cubic-bezier(.3,1.6,.5,1),box-shadow .3s;text-align:center}
-.pl::before{content:"";position:absolute;top:-18px;right:18px;width:14px;height:36px;border:3px solid #E5484D;border-bottom-color:transparent;border-radius:9px;transform:rotate(20deg);z-index:2}
+.pl::before{content:"";position:absolute;top:-9px;left:50%;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFC48A 0 16%,#F28A1E 17% 68%,#C9650B 100%);box-shadow:0 3px 0 rgba(120,60,10,.28);z-index:2}
 .pl:hover{transform:rotate(0) translateY(-8px) scale(1.04)}
 .pl .ph{aspect-ratio:4/3;border-width:2px;border-radius:2px}
 /* floaters */
@@ -156,7 +156,7 @@ body{margin:0}
 .mmd{position:absolute;right:-14px;top:-34px;width:56px;animation:sway2 4s ease-in-out infinite;pointer-events:none}
 @media(max-width:700px){.cap{left:4%;right:4%;bottom:6%;max-width:none;padding:12px 16px 14px}.cap-t{font-size:22px}.cap-s{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.cw{opacity:1}}
-.mct{display:none}
+.mct{display:none}.mbr{display:none}
 .mh{}
 .ico{display:block;margin:0 auto 8px;width:64px;height:64px;object-fit:contain;transition:transform .35s cubic-bezier(.3,1.7,.5,1)}
 .ico.lg{width:84px;height:84px;margin-bottom:10px}
@@ -173,7 +173,7 @@ div:hover>.ico{transform:rotate(-8deg) scale(1.12)}
 @supports not (animation-timeline:view()){html.js .wk .sp{opacity:0;transform:scale(.35) translateY(16px)}html.js .wk.in .sp{opacity:1;transform:none;transition:opacity .5s ease calc(var(--i)*.3s),transform .6s cubic-bezier(.3,1.7,.5,1) calc(var(--i)*.3s)}}
 .bln{transform-origin:50% 100%;animation:bln 5s ease-in-out infinite}
 @keyframes bln{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
-.grs{position:absolute;left:0;right:0;bottom:-8px;overflow:hidden;pointer-events:none}
+.grs{position:absolute;left:0;right:0;bottom:-8px;overflow-x:clip;overflow-y:visible;pointer-events:none}
 .gz{width:min(1100px,100%);margin:0 auto}
 .gz .gx{position:absolute;top:0;width:100%;height:auto}
 .gz .gl{right:100%}.gz .gr{left:100%;transform:scaleX(-1)}
@@ -181,7 +181,7 @@ div:hover>.ico{transform:rotate(-8deg) scale(1.12)}
 .gz .sp{position:absolute;height:auto;display:block}
 .gz .fw{transform-origin:50% 94%;animation:fsw 3.4s ease-in-out infinite alternate;animation-delay:calc(var(--i)*-.65s)}
 @keyframes fsw{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
-.gz .lb{animation:lbug 6s ease-in-out infinite alternate}
+.lbw{position:absolute;left:0;bottom:150px;width:50px;z-index:3;animation:lbx 48s linear infinite}.lbw img{display:block;width:100%;height:auto;animation:lhop 4.2s ease-in-out infinite}@keyframes lbx{from{transform:translateX(-80px)}to{transform:translateX(100vw)}}@keyframes lhop{0%,100%{translate:0 0;rotate:-5deg}25%{translate:0 -14px;rotate:3deg}50%{translate:0 -3px;rotate:-3deg}75%{translate:0 -16px;rotate:5deg}}
 @keyframes lbug{0%{transform:translateX(0) rotate(0)}25%{transform:translateX(30%) rotate(3deg)}50%{transform:translateX(58%) rotate(-2deg)}75%{transform:translateX(80%) rotate(3deg)}100%{transform:translateX(100%) rotate(0)}}
 .gz .sn{animation:snail 20s linear infinite}
 @keyframes snail{0%{transform:translateX(-25%) scaleX(1);opacity:0}6%{opacity:1}12.5%{transform:translateX(-5%) scaleX(1.05)}25%{transform:translateX(15%) scaleX(1)}37.5%{transform:translateX(35%) scaleX(1.05)}50%{transform:translateX(55%) scaleX(1)}62.5%{transform:translateX(75%) scaleX(1.05)}75%{transform:translateX(95%) scaleX(1)}90%{opacity:1}100%{transform:translateX(115%) scaleX(1);opacity:0}}
@@ -209,36 +209,36 @@ div:hover>.ico{transform:rotate(-8deg) scale(1.12)}
 .dec.f2{left:max(14px,calc(50% - 650px))!important;top:56px!important}
 .dec.bln{right:max(14px,calc(50% - 700px))!important;top:64px!important}
 .dec.g1 img{width:110px!important}.dec.g2 img{width:120px!important}.dec.g3 img{width:84px!important}
-.wsn{position:absolute;left:0;top:-98px;z-index:4;pointer-events:none;animation:wsx 56s linear infinite}
-.wsn img{display:block;width:96px;height:auto;transform-origin:50% 90%;animation:wsy 3.6s ease-in-out infinite}
-@keyframes wsx{from{transform:translateX(-140px)}to{transform:translateX(100vw)}}
-@keyframes wsy{0%{transform:translateY(0) rotate(-14deg)}25%{transform:translateY(-10px) rotate(0)}50%{transform:translateY(0) rotate(14deg)}75%{transform:translateY(10px) rotate(0)}100%{transform:translateY(0) rotate(-14deg)}}
+.wsn{position:absolute;left:0;top:-86px;z-index:4;pointer-events:none;animation:wsx 56s linear infinite}
+.wsn img{display:block;scale:-1 1;width:96px;height:auto;transform-origin:50% 90%;animation:wsy 3.6s ease-in-out infinite}
+@keyframes wsx{from{transform:translateX(100vw)}to{transform:translateX(-140px)}}
+@keyframes wsy{0%{transform:translateY(0) rotate(-14deg)}25%{transform:translateY(-6px) rotate(0)}50%{transform:translateY(0) rotate(12deg)}75%{transform:translateY(6px) rotate(0)}100%{transform:translateY(0) rotate(-14deg)}}
 
 
 @media(max-width:700px){
 .pg{--bw:clamp(52px,14.5vw,60px)}
 .toprow{display:none!important}
-header.hdr{padding-bottom:8px}
+header.hdr{padding-bottom:8px;min-height:calc(var(--bw) + 46px)}.mbr{display:inline}
 .nav{margin-top:14px!important}
-.logo{width:100%;box-sizing:border-box;padding:0 calc(var(--bw)*2 + 34px) 0 14px;text-align:left}
-.logo b{font-size:clamp(14px,calc((100vw - 48px - var(--bw)*2)/9.2),28px)}
+.logo{--ls:clamp(26px,8vw,34px);width:100%;box-sizing:border-box;padding:0 calc(var(--bw)*2 + 34px) 0 calc(14px + var(--ls) + 6px);text-align:left}.lsun{display:block!important;left:14px;top:-3px;width:var(--ls)}
+.logo b{font-size:clamp(14px,calc((100vw - 48px - var(--bw)*2 - var(--ls) - 6px)/9.2),28px)}
 .logo i{font-size:clamp(7px,2.2vw,9px);letter-spacing:.06em;white-space:nowrap;padding:6px 16px;margin-top:5px}
 .lm{display:none}
 .mm{top:10px;right:12px}
-.mm summary{flex-direction:column;justify-content:center;gap:5px;width:var(--bw);height:var(--bw);min-height:0;min-width:0;padding:0;border-radius:16px;font:800 clamp(8px,2.4vw,10px)/1 var(--hf);letter-spacing:.06em;text-transform:uppercase;box-shadow:0 4px 0 var(--dd)}
-.mm .bars{margin:0}
+.mm summary{flex-direction:column;justify-content:center;gap:5px;width:var(--bw);height:var(--bw);min-height:0;min-width:0;padding:0;border-radius:16px;font:800 clamp(8px,2.3vw,10px)/1 var(--hf);letter-spacing:.03em;text-transform:uppercase;box-shadow:0 4px 0 var(--dd)}
+.mm .bars{margin:0;width:22px;height:22px;justify-items:center;align-content:center}
 .mm nav{top:calc(var(--bw) + 12px)}
-.mct{display:flex;position:absolute;right:calc(12px + var(--bw) + 8px);top:10px;z-index:20;width:var(--bw);height:var(--bw);border-radius:16px;background:var(--or);color:#fff;flex-direction:column;align-items:center;justify-content:center;gap:5px;font:800 clamp(8px,2.4vw,10px)/1 var(--hf);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 0 #C9650B}
+.mct{display:flex;position:absolute;right:calc(12px + var(--bw) + 8px);top:10px;z-index:20;width:var(--bw);height:var(--bw);border-radius:16px;background:var(--or);color:#fff;flex-direction:column;align-items:center;justify-content:center;gap:5px;font:800 clamp(8px,2.3vw,10px)/1 var(--hf);letter-spacing:.03em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 0 #C9650B}
 .mct svg{width:22px;height:22px}
 .hero{--sw:100vw}
-.hv{height:calc(100vw*.74 + 150px)}
-.sl img{height:calc(100% - 150px)!important;object-position:50% 30%}
-.cap{left:3.5%;right:3.5%;bottom:8px;max-width:none;padding:12px 16px 14px}
+.hv{height:auto;display:grid;overflow:hidden}.sl{position:relative!important;grid-area:1/1;left:auto!important;margin-left:0!important;width:100%!important;height:auto!important;overflow:hidden}
+.sl>img{position:absolute;top:0;left:0;width:100%!important;height:calc(100vw*.74)!important;object-position:50% 30%}.sl.act>img{animation:none!important}
+.cap{position:relative;left:auto;right:auto;bottom:auto;margin:calc(100vw*.74 + 12px) 3.5% 14px;max-width:none;padding:12px 16px 14px}
 .cap-t{font-size:clamp(19px,6vw,24px)}
 .arr{top:calc(100vw*.37);margin-top:-22px;width:40px;height:40px}
 .arr svg{width:18px;height:18px}
 .wvb{height:18px}.wvs{height:18px;animation:none!important}
-.hv>.wvb+.wvb{bottom:150px!important}
+.hv>.wvb{top:-1px!important;bottom:auto!important}.hv>.wvb+.wvb{top:calc(100vw*.74 - 17px)!important;transform:none}
 .wave1,.wave2{animation:none!important}
 .mh{display:none!important}
 /* fluid rhythm */
@@ -261,14 +261,14 @@ section.sky[style*="padding-top:60px"]{padding-top:calc(19vw + 42px)!important}
 .dec.g2{left:calc(4% + clamp(60px,19vw,84px))!important;top:12px!important}.dec.g2 img{width:clamp(64px,19vw,88px)!important}
 .dec.g3{right:4%!important;top:10px!important}.dec.g3 img{width:clamp(48px,14vw,64px)!important}
 .dec.f1{right:max(8px,2.5vw)!important;top:6px!important}.dec.f2{left:max(8px,2.5vw)!important;top:6px!important}
-.dec.bln{right:4%!important;top:8px!important}
+.dec.bln{right:4%!important;top:8px!important}.sw{display:none!important}section.apr{padding-bottom:26px!important}section.evs{padding-top:clamp(30px,9vw,40px)!important}
 .dec.v1{left:3%!important;top:8px!important}.dec.v2{right:3%!important;top:8px!important}
 .dec.v1 img{width:clamp(40px,12vw,54px)!important}.dec.v2 img{width:clamp(40px,12vw,52px)!important}
-.wsn{top:calc(-54px - 6vw)}.wsn img{width:clamp(56px,18vw,76px)}
+.wsn{top:calc(-42px - 5.5vw)}.wsn img{width:clamp(56px,18vw,76px)}
 .ico{width:52px;height:52px}.ico.lg{width:64px;height:64px}
 .wk{margin-top:22px;width:100%}
 #journal{padding-bottom:calc(40px + 20vw)!important}
-.grs{bottom:-6px}.gz{width:165vw;margin:0 0 0 -32vw}.gz .gx{display:none}
+.grs{bottom:-6px}.lbw{width:34px;bottom:calc(15vw + 16px)}.gz{width:165vw;margin:0 0 0 -32vw}.gz .gx{display:none}
 }
 /* reveal fallback for browsers without scroll-driven animations */
 @supports not (animation-timeline:view()){
@@ -301,7 +301,7 @@ html{scroll-behavior:smooth}
 <details class="mm"><summary><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</summary><nav aria-label="Menu"><img loading="lazy" decoding="async" class="mmd" src="images/crayon-flower-illustration.png" alt="" width="56"><a href="#top" style="--c:#FFE6CC;--d:0"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></span>Home</a><a href="#about" style="--c:#DDF1EE;--d:1"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg></span>About</a><a href="#approach" style="--c:#FFE0E8;--d:2"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg></span>Approach</a><a href="#events" style="--c:#FFF1BF;--d:3"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3zM3 10h18M8 3v4M16 3v4"/></svg></span>Events</a><a href="#flow" style="--c:#E6F2D5;--d:4"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"/></svg></span>Packages</a><a href="#journal" style="--c:#FFDCC8;--d:5"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg></span>Pilot events</a><a class="cta" href="mailto:hello@littleguestclub.example" style="--d:6"><i>→</i>Contact us</a></nav></details>
 <nav aria-label="Main" class="nav" style="margin-top:6px">
 <a class="ni cur" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg><b>Home</b><i>Welcome</i></a><a class="ni " href="#about"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg><b>About</b><i>Who we are</i></a><a class="ni " href="#approach"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg><b>Approach</b><i>How we care</i></a>
-<a class="logo" href="#top" aria-label="Little Guest Club home"><b>Little Guest Club</b><i>EVENT CHILDCARE<span class="lm"> · METRO VANCOUVER</span></i></a>
+<a class="logo" href="#top" aria-label="Little Guest Club home"><img loading="lazy" decoding="async" class="lsun" src="images/crayon-sun-illustration.png" alt="" width="110" height="105"><b>Little Guest Club</b><i>EVENT CHILDCARE<span class="lm"> · METRO VANCOUVER</span></i></a>
 <a class="ni " href="#events"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3zM3 10h18M8 3v4M16 3v4"/></svg><b>Events</b><i>What we cover</i></a><a class="ni " href="#flow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg><b>Flow</b><i>Event day</i></a><a class="ni last" href="#journal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L17 4l3 3L8 19zM14 7l3 3"/></svg><b>Journal</b><i>News &amp; notes</i></a>
 </nav>
 </div>
@@ -346,7 +346,7 @@ html{scroll-behavior:smooth}
 </div>
 
 </div>
-<div class="rv card" style="margin:44px auto 0;max-width:960px;text-align:center;position:relative"><p class="hf" style="margin:0 0 4px;font-size:26px;font-weight:800">Daycare-like care. At your event.</p><p style="margin:0 0 20px;font-size:15px;color:var(--mut)">Every sitter is qualified. Here is what that means for you.</p>
+<div class="rv card" style="margin:44px auto 0;max-width:960px;text-align:center;position:relative"><p class="hf" style="margin:0 0 4px;font-size:26px;font-weight:800">Daycare-like care.<br class="mbr"> At your event.</p><p style="margin:0 0 20px;font-size:15px;color:var(--mut)">Every sitter is qualified. Here is what that means for you.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px">
 <div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/badge-childcare-qualification-graduation-cap.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Qualified sitters</p><p style="margin:0;font-size:13px;color:var(--mut)">Every sitter holds childcare qualifications, like the staff you would expect at a daycare.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/icon-event-plan-checklist-clipboard.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Daycare-style routine</p><p style="margin:0;font-size:13px;color:var(--mut)">A calm, structured play plan for the ages of the children who are coming.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/badge-first-aid-certified-sitter.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Safety first</p><p style="margin:0;font-size:13px;color:var(--mut)">Emergency information collected in advance and a defined play area.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/badge-safety-check-shield.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Clear rules for parents</p><p style="margin:0;font-size:13px;color:var(--mut)">Simple check-in and check-out, so everyone knows where the children are.</p></div>
 </div></div>
@@ -371,7 +371,7 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- APPROACH -->
-<section class="sec sky" id="approach"><div class="fl dec v1 fly" style="left:max(14px,calc(50% - 620px));top:48px;--w:84px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="84" height="113" style="width:84px;height:auto;display:block"></div><div class="fl dec v1b mh cl" style="left:max(14px,calc(50% - 500px));top:20px;--w:110px"><img loading="lazy" decoding="async" src="images/crayon-cloud-large-illustration.png" alt="" width="110" height="65" style="width:110px;height:auto;display:block"></div><div class="fl dec v2 flw" style="right:max(14px,calc(50% - 620px));top:30px;--w:96px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="96" height="121" style="width:96px;height:auto;display:block"></div><div class="fl dec v2b mh cl cl2" style="right:max(14px,calc(50% - 500px));top:18px;--w:100px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="100" height="60" style="width:100px;height:auto;display:block"></div>
+<section class="sec sky apr" id="approach"><div class="fl dec v1 fly" style="left:max(14px,calc(50% - 620px));top:48px;--w:84px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="84" height="113" style="width:84px;height:auto;display:block"></div><div class="fl dec v1b mh cl" style="left:max(14px,calc(50% - 500px));top:20px;--w:110px"><img loading="lazy" decoding="async" src="images/crayon-cloud-large-illustration.png" alt="" width="110" height="65" style="width:110px;height:auto;display:block"></div><div class="fl dec v2 flw" style="right:max(14px,calc(50% - 620px));top:30px;--w:96px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="96" height="121" style="width:96px;height:auto;display:block"></div><div class="fl dec v2b mh cl cl2" style="right:max(14px,calc(50% - 500px));top:18px;--w:100px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="100" height="60" style="width:100px;height:auto;display:block"></div>
 <svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFE6CC"/></svg>
 <div class="wrap">
 <div class="rv" style="text-align:center"><span class="rib">Our Approach</span><div class="dh"><h2>How we make it work</h2></div></div>
@@ -407,7 +407,7 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- EVENTS -->
-<section class="sec cream" id="events"><div class="fl dec v1 flw" style="left:max(14px,calc(50% - 620px));top:60px;--w:90px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="90" height="114" style="width:90px;height:auto;display:block"></div>
+<section class="sec cream evs" id="events"><div class="fl dec v1 flw" style="left:max(14px,calc(50% - 620px));top:60px;--w:90px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="90" height="114" style="width:90px;height:auto;display:block"></div>
 <svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFF9EA"/></svg>
 <div class="fl dec bln" style="right:5%;top:18px"><img loading="lazy" decoding="async" src="images/crayon-party-balloons-confetti-illustration.webp" alt="" width="110" height="120" style="width:110px;height:auto;display:block"></div>
 <div class="wrap">
@@ -474,7 +474,7 @@ html{scroll-behavior:smooth}
 <p class="hf rv" style="text-align:center;font-size:24px;font-weight:600;margin:36px 0 22px">Do not wait for the perfect plan. Talk to people, teach the idea, and test it.</p>
 <div style="text-align:center"><a class="pill" href="mailto:hello@littleguestclub.example"><i>→</i>Join a pilot</a></div>
 </div>
-<div class="grs" aria-hidden="true"><div class="gz"><img loading="lazy" decoding="async" class="b gx gl" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b gx gr" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="sp fw" style="left:2.565%;top:6.164%;width:9.701%;--i:0" src="images/crayon-pink-flower-illustration.webp" alt="" width="126" height="111"><img loading="lazy" decoding="async" class="sp fw" style="left:11.707%;top:33.219%;width:7.090%;--i:1" src="images/crayon-yellow-flower-illustration.webp" alt="" width="92" height="72"><img loading="lazy" decoding="async" class="sp lb" style="left:19.076%;top:42.123%;width:7.649%;--i:2" src="images/crayon-ladybug-illustration.webp" alt="" width="99" height="83"><img loading="lazy" decoding="async" class="sp fw" style="left:27.379%;top:0.000%;width:9.795%;--i:3" src="images/crayon-orange-flower-illustration.webp" alt="" width="127" height="110"><img loading="lazy" decoding="async" class="sp fw" style="left:38.106%;top:32.192%;width:6.017%;--i:4" src="images/crayon-teal-flower-illustration.webp" alt="" width="78" height="70"><img loading="lazy" decoding="async" class="sp fw" style="left:48.321%;top:0.685%;width:10.168%;--i:5" src="images/crayon-pink-flower-2-illustration.webp" alt="" width="132" height="113"><img loading="lazy" decoding="async" class="sp fw" style="left:70.616%;top:15.068%;width:7.090%;--i:7" src="images/crayon-yellow-flower-2-illustration.webp" alt="" width="92" height="82"><img loading="lazy" decoding="async" class="sp fw" style="left:78.965%;top:11.644%;width:7.416%;--i:8" src="images/crayon-teal-flower-2-illustration.webp" alt="" width="96" height="85"><img loading="lazy" decoding="async" class="sp fw" style="left:90.112%;top:8.904%;width:7.836%;--i:9" src="images/crayon-orange-flower-2-illustration.webp" alt="" width="102" height="99"></div></div>
+<div class="grs" aria-hidden="true"><span class="lbw"><img loading="lazy" decoding="async" src="images/crayon-ladybug-illustration.webp" alt="" width="99" height="83"></span><div class="gz"><img loading="lazy" decoding="async" class="b gx gl" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b gx gr" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="sp fw" style="left:2.565%;top:6.164%;width:9.701%;--i:0" src="images/crayon-pink-flower-illustration.webp" alt="" width="126" height="111"><img loading="lazy" decoding="async" class="sp fw" style="left:11.707%;top:33.219%;width:7.090%;--i:1" src="images/crayon-yellow-flower-illustration.webp" alt="" width="92" height="72"><img loading="lazy" decoding="async" class="sp fw" style="left:27.379%;top:0.000%;width:9.795%;--i:3" src="images/crayon-orange-flower-illustration.webp" alt="" width="127" height="110"><img loading="lazy" decoding="async" class="sp fw" style="left:38.106%;top:32.192%;width:6.017%;--i:4" src="images/crayon-teal-flower-illustration.webp" alt="" width="78" height="70"><img loading="lazy" decoding="async" class="sp fw" style="left:48.321%;top:0.685%;width:10.168%;--i:5" src="images/crayon-pink-flower-2-illustration.webp" alt="" width="132" height="113"><img loading="lazy" decoding="async" class="sp fw" style="left:64.2%;top:14%;width:7.416%;--i:6" src="images/crayon-yellow-flower-2-illustration.webp" alt="" width="92" height="82"><img loading="lazy" decoding="async" class="sp fw" style="left:19.4%;top:18%;width:7.2%;--i:3" src="images/crayon-teal-flower-2-illustration.webp" alt="" width="96" height="85"><img loading="lazy" decoding="async" class="sp fw" style="left:70.616%;top:15.068%;width:7.090%;--i:7" src="images/crayon-yellow-flower-2-illustration.webp" alt="" width="92" height="82"><img loading="lazy" decoding="async" class="sp fw" style="left:78.965%;top:11.644%;width:7.416%;--i:8" src="images/crayon-teal-flower-2-illustration.webp" alt="" width="96" height="85"><img loading="lazy" decoding="async" class="sp fw" style="left:90.112%;top:8.904%;width:7.836%;--i:9" src="images/crayon-orange-flower-2-illustration.webp" alt="" width="102" height="99"></div></div>
 </section>
 
 </main>
