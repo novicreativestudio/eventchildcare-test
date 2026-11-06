@@ -114,7 +114,7 @@ body{margin:0}
 @media(max-width:1000px){.mm{display:block;position:absolute;right:15px;top:6px;z-index:20}.mm summary{list-style:none;cursor:pointer;min-height:44px;min-width:44px;display:grid;place-items:center;background:var(--deep);color:#fff;border-radius:999px;font:700 14px var(--hf);padding:0 18px}.mm summary::-webkit-details-marker{display:none}.mm nav{position:absolute;right:0;top:52px;background:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:8px;min-width:200px;display:grid}.mm a{padding:12px 14px;color:var(--ink);text-decoration:none;font:700 15px var(--hf);border-radius:8px;min-height:44px;display:flex;align-items:center}.mm a:hover{background:var(--sky)}}
 @media(max-width:700px){.dec:not(.hd) img{width:62px!important}.dec.snl img{width:84px!important}.dec.mo{display:block}.hv{height:max(calc(var(--sw)*1.05),380px)}.tiles{left:4%;top:auto;bottom:5%;max-width:92%}.sl img{object-position:50% 25%}.t{font-size:clamp(20px,7vw,30px)}.sec{padding:76px 0 64px}.rib{font-size:12px;letter-spacing:.2em;padding:10px 24px}.dh h2{font-size:24px}.logo b{font-size:28px}.logo i{font-size:9px;padding:6px 14px}.nw{grid-template-columns:64px 1fr}.nw img{width:64px}.cmp{font-size:13px}.cmp>div{padding:10px 10px}.cin{padding:20px 14px 24px 26px}.pill{font-size:15px}}
 .cap{position:absolute;left:4.5%;bottom:9%;max-width:min(46%,520px);background:rgba(255,253,244,.94);border-radius:22px;padding:18px 24px 20px;box-shadow:0 8px 0 rgba(143,63,8,.18),0 14px 30px rgba(60,30,10,.18);z-index:4}
-.cap-k{margin:0 0 6px;font:800 11px/1 var(--hf);letter-spacing:.2em;color:#16877E}
+.cap-k{display:inline-block;margin:0 0 10px;padding:8px 16px;border-radius:999px;background:var(--or);color:#fff;font:800 clamp(12px,1.25vw,17px)/1 var(--hf);letter-spacing:.18em;box-shadow:0 3px 0 #C9650B}
 .cap-t{margin:0;font:800 clamp(22px,2.9vw,40px)/1.15 var(--hf);color:var(--ink)}
 .cw{display:inline-block;opacity:0}.act .cw{animation:rise2 .6s both cubic-bezier(.3,1.4,.5,1);animation-delay:calc(var(--k)*.09s + .35s)}
 .cw.hl{color:var(--deep);background:linear-gradient(transparent 64%,#FFD84A 64%)}
@@ -157,29 +157,123 @@ body{margin:0}
 @media(max-width:700px){.cap{left:4%;right:4%;bottom:6%;max-width:none;padding:12px 16px 14px}.cap-t{font-size:22px}.cap-s{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.cw{opacity:1}}
 .mct{display:none}
+.mh{}
+.ico{display:block;margin:0 auto 8px;width:64px;height:64px;object-fit:contain;transition:transform .35s cubic-bezier(.3,1.7,.5,1)}
+.ico.lg{width:84px;height:84px;margin-bottom:10px}
+div:hover>.ico{transform:rotate(-8deg) scale(1.12)}
+.skl{position:absolute;left:50%;top:-6px;width:min(1000px,96%);transform:translateX(-50%);pointer-events:none;z-index:0}
+.skl .b{display:block;width:100%;height:auto;animation:cdr 18s ease-in-out infinite alternate}
+@keyframes cdr{from{transform:translateX(-14px)}to{transform:translateX(14px)}}
+.wk{display:block;margin:34px auto 0;width:min(1000px,94%);pointer-events:none;position:relative}
+.wk .b{display:block;width:100%;height:auto}
+.wk .sp{position:absolute;height:auto;display:block;animation:idle 3.4s ease-in-out infinite;animation-delay:calc(var(--i)*-.45s)}
+@keyframes idle{50%{translate:0 -5px}}
+@keyframes step{from{opacity:0;transform:scale(.35) translateY(16px)}to{opacity:1;transform:none}}
+@supports (animation-timeline:view()){.wk .sp{animation:step linear both,idle 3.4s ease-in-out infinite;animation-timeline:view(),auto;animation-range:entry calc(8% + var(--i)*6%) entry calc(30% + var(--i)*6%),normal;animation-delay:0s,calc(var(--i)*-.45s)}}
+@supports not (animation-timeline:view()){html.js .wk .sp{opacity:0;transform:scale(.35) translateY(16px)}html.js .wk.in .sp{opacity:1;transform:none;transition:opacity .5s ease calc(var(--i)*.3s),transform .6s cubic-bezier(.3,1.7,.5,1) calc(var(--i)*.3s)}}
+.bln{transform-origin:50% 100%;animation:bln 5s ease-in-out infinite}
+@keyframes bln{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+.grs{position:absolute;left:0;right:0;bottom:-8px;overflow:hidden;pointer-events:none}
+.gz{width:min(1100px,100%);margin:0 auto}
+.gz .gx{position:absolute;top:0;width:100%;height:auto}
+.gz .gl{right:100%}.gz .gr{left:100%;transform:scaleX(-1)}
+.gz{position:relative}.gz .b{display:block;width:100%;height:auto}
+.gz .sp{position:absolute;height:auto;display:block}
+.gz .fw{transform-origin:50% 94%;animation:fsw 3.4s ease-in-out infinite alternate;animation-delay:calc(var(--i)*-.65s)}
+@keyframes fsw{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.gz .lb{animation:lbug 6s ease-in-out infinite alternate}
+@keyframes lbug{0%{transform:translateX(0) rotate(0)}25%{transform:translateX(30%) rotate(3deg)}50%{transform:translateX(58%) rotate(-2deg)}75%{transform:translateX(80%) rotate(3deg)}100%{transform:translateX(100%) rotate(0)}}
+.gz .sn{animation:snail 20s linear infinite}
+@keyframes snail{0%{transform:translateX(-25%) scaleX(1);opacity:0}6%{opacity:1}12.5%{transform:translateX(-5%) scaleX(1.05)}25%{transform:translateX(15%) scaleX(1)}37.5%{transform:translateX(35%) scaleX(1.05)}50%{transform:translateX(55%) scaleX(1)}62.5%{transform:translateX(75%) scaleX(1.05)}75%{transform:translateX(95%) scaleX(1)}90%{opacity:1}100%{transform:translateX(115%) scaleX(1);opacity:0}}
+#journal{padding-bottom:190px}
+@media(min-width:701px){section.sky[style*="padding-top:60px"]{padding-top:96px!important}}
+@media(min-width:701px){section.cream[style*="padding-top:110px"]{padding-top:84px!important}}
+.mq{overflow:hidden;width:100vw;margin:34px 0 0 calc(50% - 50vw);padding:16px 0 20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.mt{display:flex;width:max-content;animation:mqm 80s linear infinite}
+.mq:hover .mt{animation-play-state:paused}
+@keyframes mqm{to{transform:translateX(-50%)}}
+.mq figure{margin:0 20px 0 0;flex:none;width:clamp(190px,23vw,290px);background:#fff;padding:7px 7px 14px;border-radius:6px;box-shadow:0 8px 16px rgba(120,70,20,.2);transform:rotate(var(--r))}
+.mq img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px}
+.sl.act>img{animation:kb 9s ease-out both}
+@keyframes kb{from{transform:scale(1.07)}to{transform:scale(1)}}
+.card{transition:translate .3s ease,box-shadow .3s ease}.card:hover{translate:0 -4px}
+.rv>img,.rv>div>img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.rv:hover>img,.rv:hover>div>img{transform:scale(1.04)}
+.ico{animation:icf 4.6s ease-in-out infinite}
+@keyframes icf{50%{translate:0 -4px}}
+@supports (animation-timeline:view()){.rv>img,.rv>div>img{animation:imgin linear both;animation-timeline:view();animation-range:entry 0% entry 70%}@keyframes imgin{from{scale:1.1}to{scale:1}}}
+@supports not (animation-timeline:view()){html.js .rv:nth-child(2){transition-delay:.12s}html.js .rv:nth-child(3){transition-delay:.24s}html.js .rv:nth-child(4){transition-delay:.36s}}
+.dec.nb img{width:84px!important}
+.dec.v1 img,.dec.v2 img,.dec.v1b img,.dec.v2b img{width:var(--w,100px)!important}
+.dec.f1{right:max(14px,calc(50% - 650px))!important;top:36px!important}
+.dec.f2{left:max(14px,calc(50% - 650px))!important;top:56px!important}
+.dec.bln{right:max(14px,calc(50% - 700px))!important;top:64px!important}
+.dec.g1 img{width:110px!important}.dec.g2 img{width:120px!important}.dec.g3 img{width:84px!important}
+.wsn{position:absolute;left:0;top:-98px;z-index:4;pointer-events:none;animation:wsx 56s linear infinite}
+.wsn img{display:block;width:96px;height:auto;transform-origin:50% 90%;animation:wsy 3.6s ease-in-out infinite}
+@keyframes wsx{from{transform:translateX(-140px)}to{transform:translateX(100vw)}}
+@keyframes wsy{0%{transform:translateY(0) rotate(-14deg)}25%{transform:translateY(-10px) rotate(0)}50%{transform:translateY(0) rotate(14deg)}75%{transform:translateY(10px) rotate(0)}100%{transform:translateY(0) rotate(-14deg)}}
+
+
 @media(max-width:700px){
+.pg{--bw:clamp(52px,14.5vw,60px)}
 .toprow{display:none!important}
 header.hdr{padding-bottom:8px}
 .nav{margin-top:14px!important}
-.logo{width:100%;box-sizing:border-box;padding:0 144px 0 14px;text-align:left}
-.logo b{font-size:clamp(20px,5.9vw,27px)}
-.logo i{font-size:clamp(6.5px,1.9vw,8px);letter-spacing:.06em;white-space:nowrap;padding:6px 16px;margin-top:5px}
-.mm{top:12px}
-.mm summary{flex-direction:column;justify-content:center;gap:6px;width:64px;height:64px;min-height:64px;padding:0;border-radius:18px;font:800 10px/1 var(--hf);letter-spacing:.12em;text-transform:uppercase;box-shadow:0 4px 0 var(--dd)}
+.logo{width:100%;box-sizing:border-box;padding:0 calc(var(--bw)*2 + 34px) 0 14px;text-align:left}
+.logo b{font-size:clamp(14px,calc((100vw - 48px - var(--bw)*2)/9.2),28px)}
+.logo i{font-size:clamp(7px,2.2vw,9px);letter-spacing:.06em;white-space:nowrap;padding:6px 16px;margin-top:5px}
+.lm{display:none}
+.mm{top:10px;right:12px}
+.mm summary{flex-direction:column;justify-content:center;gap:5px;width:var(--bw);height:var(--bw);min-height:0;min-width:0;padding:0;border-radius:16px;font:800 clamp(8px,2.4vw,10px)/1 var(--hf);letter-spacing:.06em;text-transform:uppercase;box-shadow:0 4px 0 var(--dd)}
 .mm .bars{margin:0}
-.mm nav{top:76px}
-.mct{display:flex;position:absolute;right:87px;top:12px;z-index:20;width:64px;height:64px;border-radius:18px;background:var(--or);color:#fff;flex-direction:column;align-items:center;justify-content:center;gap:6px;font:800 10px/1 var(--hf);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 0 #C9650B}
+.mm nav{top:calc(var(--bw) + 12px)}
+.mct{display:flex;position:absolute;right:calc(12px + var(--bw) + 8px);top:10px;z-index:20;width:var(--bw);height:var(--bw);border-radius:16px;background:var(--or);color:#fff;flex-direction:column;align-items:center;justify-content:center;gap:5px;font:800 clamp(8px,2.4vw,10px)/1 var(--hf);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 0 #C9650B}
+.mct svg{width:22px;height:22px}
 .hero{--sw:100vw}
 .hv{height:calc(100vw*.74 + 150px)}
 .sl img{height:calc(100% - 150px)!important;object-position:50% 30%}
 .cap{left:3.5%;right:3.5%;bottom:8px;max-width:none;padding:12px 16px 14px}
-.cap-t{font-size:clamp(20px,6vw,24px)}
-.arr{top:calc(100vw*.37);margin-top:-22px;width:44px;height:44px}
-.arr svg{width:20px;height:20px}
-.wvb{height:20px}.wvs{height:20px;animation:none!important}
+.cap-t{font-size:clamp(19px,6vw,24px)}
+.arr{top:calc(100vw*.37);margin-top:-22px;width:40px;height:40px}
+.arr svg{width:18px;height:18px}
+.wvb{height:18px}.wvs{height:18px;animation:none!important}
 .hv>.wvb+.wvb{bottom:150px!important}
 .wave1,.wave2{animation:none!important}
-.nm{display:none}
+.mh{display:none!important}
+/* fluid rhythm */
+.sec{padding:clamp(56px,15vw,66px) 0 clamp(34px,10vw,44px)!important}
+.rib{font-size:clamp(11px,3.5vw,14px);letter-spacing:.22em;padding:10px 24px 10px 26px;margin:0 14px}
+.dh{margin-top:10px}.dh::before,.dh::after{display:none}
+.dh h2{font-size:clamp(21px,6.6vw,27px)}
+.sec .wrap>div[style*="grid-template-columns"]{gap:26px 16px!important;margin-top:34px!important}
+.sec .rv>p{margin-top:12px!important}
+.dec:not(.hd) img{width:clamp(40px,12.5vw,56px)!important}
+.dec.snl img{width:clamp(64px,20vw,84px)!important}
+.dec.sunr{left:max(8px,2.5vw)!important;top:10px!important}
+.dec.f1{right:max(8px,2.5vw)!important;top:6px!important}
+.dec.f2{left:max(8px,2.5vw)!important;top:6px!important}
+.dec.f1 img,.dec.f2 img{width:clamp(36px,11vw,48px)!important}
+.dec.f3{right:max(10px,4vw)!important;bottom:4px!important}
+.card:active,.pl:active,.pill:active{transform:scale(.97)}
+section.sky[style*="padding-top:60px"]{padding-top:calc(19vw + 42px)!important}
+.dec.g1{left:4%!important;top:14px!important}.dec.g1 img{width:clamp(56px,17vw,76px)!important}
+.dec.g2{left:calc(4% + clamp(60px,19vw,84px))!important;top:12px!important}.dec.g2 img{width:clamp(64px,19vw,88px)!important}
+.dec.g3{right:4%!important;top:10px!important}.dec.g3 img{width:clamp(48px,14vw,64px)!important}
+.dec.f1{right:max(8px,2.5vw)!important;top:6px!important}.dec.f2{left:max(8px,2.5vw)!important;top:6px!important}
+.dec.bln{right:4%!important;top:8px!important}
+.dec.v1{left:3%!important;top:8px!important}.dec.v2{right:3%!important;top:8px!important}
+.dec.v1 img{width:clamp(40px,12vw,54px)!important}.dec.v2 img{width:clamp(40px,12vw,52px)!important}
+.wsn{top:calc(-54px - 6vw)}.wsn img{width:clamp(56px,18vw,76px)}
+.ico{width:52px;height:52px}.ico.lg{width:64px;height:64px}
+.wk{margin-top:22px;width:100%}
+#journal{padding-bottom:calc(40px + 20vw)!important}
+.grs{bottom:-6px}.gz{width:165vw;margin:0 0 0 -32vw}.gz .gx{display:none}
+}
+/* reveal fallback for browsers without scroll-driven animations */
+@supports not (animation-timeline:view()){
+html.js .rv{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s cubic-bezier(.3,1.3,.5,1)}
+html.js .rv.in{opacity:1;transform:none}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.t{opacity:1}}
 
@@ -207,7 +301,7 @@ html{scroll-behavior:smooth}
 <details class="mm"><summary><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</summary><nav aria-label="Menu"><img loading="lazy" decoding="async" class="mmd" src="images/crayon-flower-illustration.png" alt="" width="56"><a href="#top" style="--c:#FFE6CC;--d:0"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></span>Home</a><a href="#about" style="--c:#DDF1EE;--d:1"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg></span>About</a><a href="#approach" style="--c:#FFE0E8;--d:2"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg></span>Approach</a><a href="#events" style="--c:#FFF1BF;--d:3"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3zM3 10h18M8 3v4M16 3v4"/></svg></span>Events</a><a href="#flow" style="--c:#E6F2D5;--d:4"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"/></svg></span>Packages</a><a href="#journal" style="--c:#FFDCC8;--d:5"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg></span>Pilot events</a><a class="cta" href="mailto:hello@littleguestclub.example" style="--d:6"><i>→</i>Contact us</a></nav></details>
 <nav aria-label="Main" class="nav" style="margin-top:6px">
 <a class="ni cur" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg><b>Home</b><i>Welcome</i></a><a class="ni " href="#about"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg><b>About</b><i>Who we are</i></a><a class="ni " href="#approach"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg><b>Approach</b><i>How we care</i></a>
-<a class="logo" href="#top" aria-label="Little Guest Club home"><b>Little Guest Club</b><i>EVENT CHILDCARE · METRO VANCOUVER</i></a>
+<a class="logo" href="#top" aria-label="Little Guest Club home"><b>Little Guest Club</b><i>EVENT CHILDCARE<span class="lm"> · METRO VANCOUVER</span></i></a>
 <a class="ni " href="#events"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3zM3 10h18M8 3v4M16 3v4"/></svg><b>Events</b><i>What we cover</i></a><a class="ni " href="#flow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg><b>Flow</b><i>Event day</i></a><a class="ni last" href="#journal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L17 4l3 3L8 19zM14 7l3 3"/></svg><b>Journal</b><i>News &amp; notes</i></a>
 </nav>
 </div>
@@ -225,8 +319,7 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- GOAL -->
-<section class="sec sky" style="padding-top:60px" id="goal"><div class="fl dec mo sunr" style="left:10px;top:12px"><img loading="lazy" decoding="async" src="images/crayon-sun-illustration.png" alt="" width="56" style="width:56px;height:auto;display:block"></div><div class="fl dec mo cl" style="left:76px;top:30px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="60" style="width:60px;height:auto;display:block"></div><div class="fl dec snl" style="left:0;bottom:-6px;z-index:2"><img loading="lazy" decoding="async" src="images/crayon-snail-illustration.png" alt="" width="150" style="width:150px;height:auto;display:block"></div><div class="fl dec fly" style="right:5%;top:40px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="50" style="width:50px;height:auto;display:block"></div>
-<div class="wrap">
+<section class="sec sky" style="padding-top:60px" id="goal"><div class="fl dec g1 sunr" style="left:max(12px,calc(50% - 560px));top:34px"><img loading="lazy" decoding="async" src="images/crayon-sun-illustration.png" alt="" width="110" height="105" style="width:110px;height:auto;display:block"></div><div class="fl dec g2 cl" style="left:max(100px,calc(50% - 430px));top:22px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="120" height="71" style="width:120px;height:auto;display:block"></div><div class="fl dec g3 fly" style="right:max(12px,calc(50% - 560px));top:36px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="84" height="113" style="width:84px;height:auto;display:block"></div><div class="wrap">
 <div class="rv" style="text-align:center"><span class="rib">Our Goal</span><div class="dh"><h2>A better event for every guest</h2></div>
 <p style="max-width:690px;margin:18px auto 0;font-size:15px">Event childcare with the standards parents expect from daycare. Every sitter is qualified, and the care is planned, calm and safe, right where your event happens.</p></div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:36px 20px;margin-top:36px">
@@ -255,14 +348,14 @@ html{scroll-behavior:smooth}
 </div>
 <div class="rv card" style="margin:44px auto 0;max-width:960px;text-align:center;position:relative"><p class="hf" style="margin:0 0 4px;font-size:26px;font-weight:800">Daycare-like care. At your event.</p><p style="margin:0 0 20px;font-size:15px;color:var(--mut)">Every sitter is qualified. Here is what that means for you.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px">
-<div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Qualified sitters</p><p style="margin:0;font-size:13px;color:var(--mut)">Every sitter holds childcare qualifications, like the staff you would expect at a daycare.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Daycare-style routine</p><p style="margin:0;font-size:13px;color:var(--mut)">A calm, structured play plan for the ages of the children who are coming.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Safety first</p><p style="margin:0;font-size:13px;color:var(--mut)">Emergency information collected in advance and a defined play area.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Clear rules for parents</p><p style="margin:0;font-size:13px;color:var(--mut)">Simple check-in and check-out, so everyone knows where the children are.</p></div>
+<div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/badge-childcare-qualification-graduation-cap.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Qualified sitters</p><p style="margin:0;font-size:13px;color:var(--mut)">Every sitter holds childcare qualifications, like the staff you would expect at a daycare.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/icon-event-plan-checklist-clipboard.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Daycare-style routine</p><p style="margin:0;font-size:13px;color:var(--mut)">A calm, structured play plan for the ages of the children who are coming.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/badge-first-aid-certified-sitter.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Safety first</p><p style="margin:0;font-size:13px;color:var(--mut)">Emergency information collected in advance and a defined play area.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/badge-safety-check-shield.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Clear rules for parents</p><p style="margin:0;font-size:13px;color:var(--mut)">Simple check-in and check-out, so everyone knows where the children are.</p></div>
 </div></div>
-<div style="text-align:center;margin-top:40px"><a class="pill" href="#about"><i>→</i>About Us</a></div>
+<div style="text-align:center;margin-top:40px"><a class="pill" href="#about"><i>→</i>About Us</a></div><div class="wk" aria-hidden="true"><img loading="lazy" decoding="async" class="b" src="images/crayon-shoe-path-dots.webp" alt="" width="1300" height="220"><img loading="lazy" decoding="async" class="sp st" style="left:0.484%;top:26.934%;width:18.402%;--i:0" src="images/crayon-shoe-footprint-step-1.webp" alt="" width="239" height="161"><img loading="lazy" decoding="async" class="sp st" style="left:1.308%;top:5.158%;width:5.424%;--i:1" src="images/crayon-shoe-footprint-step-2.webp" alt="" width="71" height="69"><img loading="lazy" decoding="async" class="sp st" style="left:22.567%;top:26.648%;width:6.877%;--i:2" src="images/crayon-shoe-footprint-step-3.webp" alt="" width="89" height="110"><img loading="lazy" decoding="async" class="sp st" style="left:27.700%;top:35.530%;width:7.361%;--i:3" src="images/crayon-shoe-footprint-step-4.webp" alt="" width="96" height="118"><img loading="lazy" decoding="async" class="sp st" style="left:39.031%;top:0.000%;width:5.375%;--i:4" src="images/crayon-shoe-footprint-step-5.webp" alt="" width="70" height="65"><img loading="lazy" decoding="async" class="sp st" style="left:41.211%;top:13.467%;width:15.012%;--i:5" src="images/crayon-shoe-footprint-step-6.webp" alt="" width="195" height="159"><img loading="lazy" decoding="async" class="sp st" style="left:63.487%;top:28.940%;width:7.070%;--i:6" src="images/crayon-shoe-footprint-step-7.webp" alt="" width="92" height="115"><img loading="lazy" decoding="async" class="sp st" style="left:68.910%;top:45.845%;width:9.346%;--i:7" src="images/crayon-shoe-footprint-step-8.webp" alt="" width="122" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:79.855%;top:17.192%;width:16.610%;--i:8" src="images/crayon-shoe-footprint-step-9.webp" alt="" width="216" height="144"></div>
 </div>
 </section>
 
 <!-- NEWS + JOURNAL -->
-<section class="sec cream" style="padding-top:110px" id="news">
+<section class="sec cream" style="padding-top:110px" id="news"><div class="fl dec v1 cl" style="left:max(14px,calc(50% - 620px));top:40px;--w:130px"><img loading="lazy" decoding="async" src="images/crayon-cloud-large-illustration.png" alt="" width="130" height="77" style="width:130px;height:auto;display:block"></div><div class="fl dec v2 fly" style="right:max(14px,calc(50% - 620px));top:24px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="76" height="102" style="width:76px;height:auto;display:block"></div>
 <svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFF9EA"/></svg>
 <div class="wrap">
 <svg class="pen" width="110" height="120" viewBox="0 0 110 120" aria-hidden="true"><g transform="translate(18,116) rotate(-14)"><rect x="-8" y="-96" width="16" height="92" rx="2" fill="#6DBE4B"/><path d="M-8 -96L0 -120L8 -96Z" fill="#F3D2A2"/></g><g transform="translate(42,116) rotate(-5)"><rect x="-8" y="-96" width="16" height="92" rx="2" fill="#2DB5AA"/><path d="M-8 -96L0 -120L8 -96Z" fill="#F3D2A2"/></g><g transform="translate(66,116) rotate(4)"><rect x="-8" y="-96" width="16" height="92" rx="2" fill="#F28A1E"/><path d="M-8 -96L0 -120L8 -96Z" fill="#F3D2A2"/></g></svg>
@@ -278,7 +371,7 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- APPROACH -->
-<section class="sec sky" id="approach"><div class="fl dec mo sunr" style="left:10px;top:12px"><img loading="lazy" decoding="async" src="images/crayon-sun-illustration.png" alt="" width="56" style="width:56px;height:auto;display:block"></div><div class="fl dec mo cl" style="left:76px;top:30px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="60" style="width:60px;height:auto;display:block"></div><div class="fl dec flw" style="right:-20px;top:50px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="110" style="width:110px;height:auto;display:block"></div><div class="fl dec fly nm" style="left:3%;top:100px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="46" style="width:46px;height:auto;display:block"></div>
+<section class="sec sky" id="approach"><div class="fl dec v1 fly" style="left:max(14px,calc(50% - 620px));top:48px;--w:84px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="84" height="113" style="width:84px;height:auto;display:block"></div><div class="fl dec v1b mh cl" style="left:max(14px,calc(50% - 500px));top:20px;--w:110px"><img loading="lazy" decoding="async" src="images/crayon-cloud-large-illustration.png" alt="" width="110" height="65" style="width:110px;height:auto;display:block"></div><div class="fl dec v2 flw" style="right:max(14px,calc(50% - 620px));top:30px;--w:96px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="96" height="121" style="width:96px;height:auto;display:block"></div><div class="fl dec v2b mh cl cl2" style="right:max(14px,calc(50% - 500px));top:18px;--w:100px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="100" height="60" style="width:100px;height:auto;display:block"></div>
 <svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFE6CC"/></svg>
 <div class="wrap">
 <div class="rv" style="text-align:center"><span class="rib">Our Approach</span><div class="dh"><h2>How we make it work</h2></div></div>
@@ -309,27 +402,27 @@ html{scroll-behavior:smooth}
 </div>
 
 </div>
-<div style="text-align:center;margin-top:44px"><a class="pill" href="#approach"><i>→</i>Our Approach</a></div>
+<div style="text-align:center;margin-top:44px"><a class="pill" href="#approach"><i>→</i>Our Approach</a></div><div class="wk" aria-hidden="true"><img loading="lazy" decoding="async" class="b" src="images/crayon-footprint-path-dots.webp" alt="" width="1300" height="151"><img loading="lazy" decoding="async" class="sp st" style="left:0.950%;top:10.612%;width:11.021%;--i:0" src="images/crayon-footprint-step-1.webp" alt="" width="143" height="123"><img loading="lazy" decoding="async" class="sp st" style="left:16.200%;top:13.061%;width:14.014%;--i:1" src="images/crayon-footprint-step-2.webp" alt="" width="182" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:28.219%;top:12.245%;width:9.976%;--i:2" src="images/crayon-footprint-step-3.webp" alt="" width="130" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:41.093%;top:17.959%;width:15.487%;--i:3" src="images/crayon-footprint-step-4.webp" alt="" width="201" height="116"><img loading="lazy" decoding="async" class="sp st" style="left:71.306%;top:27.755%;width:17.577%;--i:4" src="images/crayon-footprint-step-5.webp" alt="" width="229" height="109"><img loading="lazy" decoding="async" class="sp st" style="left:86.983%;top:13.469%;width:11.259%;--i:5" src="images/crayon-footprint-step-6.webp" alt="" width="146" height="102"></div>
 </div>
 </section>
 
 <!-- EVENTS -->
-<section class="sec cream" id="events">
+<section class="sec cream" id="events"><div class="fl dec v1 flw" style="left:max(14px,calc(50% - 620px));top:60px;--w:90px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="90" height="114" style="width:90px;height:auto;display:block"></div>
 <svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFF9EA"/></svg>
-<svg class="fl bob" style="right:6%;top:34px" width="150" height="70" viewBox="0 0 150 70" aria-hidden="true"><path d="M8 34Q36 6 62 30Q88 4 116 28" stroke="#6F5A4A" stroke-width="5" fill="none" stroke-linecap="round" opacity=".55"/><path d="M84 58Q104 40 124 56Q142 40 148 52" stroke="#6F5A4A" stroke-width="4" fill="none" stroke-linecap="round" opacity=".45"/></svg>
+<div class="fl dec bln" style="right:5%;top:18px"><img loading="lazy" decoding="async" src="images/crayon-party-balloons-confetti-illustration.webp" alt="" width="110" height="120" style="width:110px;height:auto;display:block"></div>
 <div class="wrap">
 <div class="rv" style="text-align:center">
 <svg class="sw" style="display:block;margin:0 auto 4px;max-width:92%" width="720" height="60" viewBox="0 0 720 60" aria-hidden="true"><path d="M0 8Q360 52 720 8" stroke="#8a6a50" stroke-width="2" fill="none"/><g><path d="M30 14l26 2-13 28z" fill="#F28A1E"/><path d="M96 22l26 3-13 28z" fill="#FFD84A"/><path d="M162 28l26 3-13 28z" fill="#F58FA8"/><path d="M228 33l26 2-13 28z" fill="#2DB5AA"/><path d="M294 36l26 1-13 28z" fill="#6DBE4B"/><path d="M360 37l26 0-13 28z" fill="#F28A1E"/><path d="M426 36l26-1-13 28z" fill="#FFD84A"/><path d="M492 33l26-2-13 28z" fill="#F58FA8"/><path d="M558 28l26-3-13 28z" fill="#2DB5AA"/><path d="M624 22l26-3-13 28z" fill="#6DBE4B"/></g></svg>
 <span class="rib">Event Types</span><div class="dh"><h2>Fun for every kind of event</h2></div></div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:40px 24px;margin-top:44px;max-width:1000px;margin-left:auto;margin-right:auto">
 
-<div class="rv"><div class="pl" style="--r:-3deg"><img loading="lazy" decoding="async" src="images/wedding-kids-corner-setup-venue-vancouver.jpg" alt="A kids corner set up in a wedding venue" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px"><div style="margin-top:12px"><span class="mk">Weddings</span></div></div></div>
+<div class="rv"><div class="pl" style="--r:-3deg"><img loading="lazy" decoding="async" src="images/wedding-reception-kids-bubbles-event-childcare-vancouver.jpg" alt="A sitter blowing bubbles with children at a garden wedding reception" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px"><div style="margin-top:12px"><span class="mk">Weddings</span></div></div></div>
 
-<div class="rv"><div class="pl" style="--r:2.5deg"><img loading="lazy" decoding="async" src="images/birthday-party-cake-candles-event-childcare.jpg" alt="A birthday cake with candles" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px"><div style="margin-top:12px"><span class="mk">Birthday parties</span></div></div></div>
+<div class="rv"><div class="pl" style="--r:2.5deg"><img loading="lazy" decoding="async" src="images/birthday-party-cake-event-sitter-kids-vancouver.jpg" alt="A sitter bringing a birthday cake to children at an outdoor party" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px"><div style="margin-top:12px"><span class="mk">Birthday parties</span></div></div></div>
 
-<div class="rv"><div class="pl" style="--r:-2deg"><img loading="lazy" decoding="async" src="images/corporate-family-day-parachute-play-sitter.jpg" alt="A sitter and children with a rainbow parachute" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px"><div style="margin-top:12px"><span class="mk">Corporate events</span></div></div></div>
+<div class="rv"><div class="pl" style="--r:-2deg"><img loading="lazy" decoding="async" src="images/corporate-family-day-kids-games-event-childcare-vancouver.jpg" alt="Children running and playing with a sitter at a company family day" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px"><div style="margin-top:12px"><span class="mk">Corporate events</span></div></div></div>
 
-<div class="rv"><div class="pl" style="--r:3.5deg"><img loading="lazy" decoding="async" src="images/garden-event-story-time-childcare-sitter.jpg" alt="A sitter reading a picture book outdoors" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px"><div style="margin-top:12px"><span class="mk">Showers &amp; reunions</span></div></div></div>
+<div class="rv"><div class="pl" style="--r:3.5deg"><img loading="lazy" decoding="async" src="images/baby-shower-ring-toss-kids-sitter-event-childcare-vancouver.jpg" alt="Children playing ring toss with a sitter at a baby shower" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px"><div style="margin-top:12px"><span class="mk">Showers &amp; reunions</span></div></div></div>
 
 </div>
 <div style="text-align:center;margin-top:48px"><a class="pill" href="#events"><i>→</i>See other events</a></div>
@@ -337,20 +430,20 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- PACKAGES -->
-<section class="sec sky" id="flow"><div class="fl dec flw" style="left:-16px;top:70px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="110" style="width:110px;height:auto;display:block"></div><div class="fl dec cl" style="right:6%;bottom:20px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="120" style="width:120px;height:auto;display:block"></div>
+<section class="sec sky" id="flow"><div class="fl dec v1 flw" style="left:max(14px,calc(50% - 620px));top:40px;--w:96px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="96" height="121" style="width:96px;height:auto;display:block"></div><div class="fl dec v1b mh cl" style="left:max(14px,calc(50% - 500px));top:24px;--w:100px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="100" height="60" style="width:100px;height:auto;display:block"></div><div class="fl dec v2 sunr" style="right:max(14px,calc(50% - 620px));top:34px;--w:96px"><img loading="lazy" decoding="async" src="images/crayon-sun-illustration.png" alt="" width="96" height="91" style="width:96px;height:auto;display:block"></div><div class="fl dec v2b mh fly" style="right:max(14px,calc(50% - 500px));top:50px;--w:70px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="70" height="94" style="width:70px;height:auto;display:block"></div>
 <svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFE6CC"/></svg>
 <div class="wrap">
 <div class="rv" style="text-align:center"><span class="rib">Packages</span><div class="dh"><h2>Clear options, no guesswork</h2></div>
 <p style="max-width:640px;margin:16px auto 0;font-size:15px">Every event is different, so each one starts with a quick conversation. Pick the shape that fits and we handle the rest.</p></div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:24px;margin-top:40px">
-<div class="rv card" style="text-align:center"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">3h</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">3-hour package</h3><p style="margin:0;font-size:14px;color:var(--mut)">A focused window, such as the ceremony and speeches.</p></div><div class="rv card" style="text-align:center"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">4h</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">4-hour package</h3><p style="margin:0;font-size:14px;color:var(--mut)">More time, from ceremony through dinner and dancing.</p></div><div class="rv card" style="text-align:center"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">Kids corner</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">A space of their own</h3><p style="margin:0;font-size:14px;color:var(--mut)">A defined play area with toys and activities, set up for the children who are coming.</p></div><div class="rv card" style="text-align:center"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">+1</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">Extra sitter</h3><p style="margin:0;font-size:14px;color:var(--mut)">Add a sitter when more children or a wider age range attend.</p></div>
+<div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" class="ico lg" src="images/icon-event-plan-checklist-clipboard.webp" alt="" width="84" height="84"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">3h</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">3-hour package</h3><p style="margin:0;font-size:14px;color:var(--mut)">A focused window, such as the ceremony and speeches.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" class="ico lg" src="images/icon-caring-hands-heart.webp" alt="" width="84" height="84"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">4h</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">4-hour package</h3><p style="margin:0;font-size:14px;color:var(--mut)">More time, from ceremony through dinner and dancing.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" class="ico lg" src="images/icon-kids-corner-play-tent.webp" alt="" width="84" height="84"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">Kids corner</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">A space of their own</h3><p style="margin:0;font-size:14px;color:var(--mut)">A defined play area with toys and activities, set up for the children who are coming.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" class="ico lg" src="images/icon-sitter-with-two-children.webp" alt="" width="84" height="84"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">+1</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">Extra sitter</h3><p style="margin:0;font-size:14px;color:var(--mut)">Add a sitter when more children or a wider age range attend.</p></div>
 </div>
-<div style="text-align:center;margin-top:40px"><a class="pill" href="mailto:hello@littleguestclub.example"><i>→</i>Ask for a quote</a></div>
+<div style="text-align:center;margin-top:40px"><a class="pill" href="mailto:hello@littleguestclub.example"><i>→</i>Ask for a quote</a></div><div class="wk" aria-hidden="true"><img loading="lazy" decoding="async" class="b" src="images/crayon-shoe-path-dots.webp" alt="" width="1300" height="220"><img loading="lazy" decoding="async" class="sp st" style="left:0.484%;top:26.934%;width:18.402%;--i:0" src="images/crayon-shoe-footprint-step-1.webp" alt="" width="239" height="161"><img loading="lazy" decoding="async" class="sp st" style="left:1.308%;top:5.158%;width:5.424%;--i:1" src="images/crayon-shoe-footprint-step-2.webp" alt="" width="71" height="69"><img loading="lazy" decoding="async" class="sp st" style="left:22.567%;top:26.648%;width:6.877%;--i:2" src="images/crayon-shoe-footprint-step-3.webp" alt="" width="89" height="110"><img loading="lazy" decoding="async" class="sp st" style="left:27.700%;top:35.530%;width:7.361%;--i:3" src="images/crayon-shoe-footprint-step-4.webp" alt="" width="96" height="118"><img loading="lazy" decoding="async" class="sp st" style="left:39.031%;top:0.000%;width:5.375%;--i:4" src="images/crayon-shoe-footprint-step-5.webp" alt="" width="70" height="65"><img loading="lazy" decoding="async" class="sp st" style="left:41.211%;top:13.467%;width:15.012%;--i:5" src="images/crayon-shoe-footprint-step-6.webp" alt="" width="195" height="159"><img loading="lazy" decoding="async" class="sp st" style="left:63.487%;top:28.940%;width:7.070%;--i:6" src="images/crayon-shoe-footprint-step-7.webp" alt="" width="92" height="115"><img loading="lazy" decoding="async" class="sp st" style="left:68.910%;top:45.845%;width:9.346%;--i:7" src="images/crayon-shoe-footprint-step-8.webp" alt="" width="122" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:79.855%;top:17.192%;width:16.610%;--i:8" src="images/crayon-shoe-footprint-step-9.webp" alt="" width="216" height="144"></div><div class="mq" aria-hidden="true"><div class="mt"><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/wedding-reception-kids-bubbles-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/birthday-party-cake-event-sitter-kids-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1deg"><img loading="lazy" decoding="async" src="images/wedding-guests-relax-while-kids-play-event-childcare.jpg" alt="" width="288" height="216"></figure><figure style="--r:2deg"><img loading="lazy" decoding="async" src="images/corporate-family-day-kids-games-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1.5deg"><img loading="lazy" decoding="async" src="images/qualified-sitter-reading-to-children-wedding-event.jpg" alt="" width="288" height="216"></figure><figure style="--r:1deg"><img loading="lazy" decoding="async" src="images/baby-shower-ring-toss-kids-sitter-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/sitter-preparing-kids-corner-wedding-reception.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/parent-hands-child-to-qualified-sitter-event.jpg" alt="" width="288" height="216"></figure><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/wedding-reception-kids-bubbles-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/birthday-party-cake-event-sitter-kids-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1deg"><img loading="lazy" decoding="async" src="images/wedding-guests-relax-while-kids-play-event-childcare.jpg" alt="" width="288" height="216"></figure><figure style="--r:2deg"><img loading="lazy" decoding="async" src="images/corporate-family-day-kids-games-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1.5deg"><img loading="lazy" decoding="async" src="images/qualified-sitter-reading-to-children-wedding-event.jpg" alt="" width="288" height="216"></figure><figure style="--r:1deg"><img loading="lazy" decoding="async" src="images/baby-shower-ring-toss-kids-sitter-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/sitter-preparing-kids-corner-wedding-reception.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/parent-hands-child-to-qualified-sitter-event.jpg" alt="" width="288" height="216"></figure></div></div>
 </div>
 </section>
 
 <!-- DIFFERENT -->
-<section class="sec cream" id="about">
+<section class="sec cream" id="about"><div class="fl dec v1 sunr" style="left:max(14px,calc(50% - 620px));top:36px"><img loading="lazy" decoding="async" src="images/crayon-sun-illustration.png" alt="" width="100" height="95" style="width:100px;height:auto;display:block"></div><div class="fl dec v2 cl cl2" style="right:max(14px,calc(50% - 620px));top:44px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="120" height="72" style="width:120px;height:auto;display:block"></div>
 <svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFF9EA"/></svg>
 <div class="wrap">
 <div class="rv" style="text-align:center"><span class="rib">Why It's Different</span><div class="dh"><h2>Two mothers. Two very different moments.</h2></div></div>
@@ -370,7 +463,7 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- PILOT -->
-<section class="sec sky" id="journal"><div class="fl dec snl" style="right:0;bottom:-4px;z-index:2"><img loading="lazy" decoding="async" src="images/crayon-snail-illustration.png" alt="" width="150" style="width:150px;height:auto;display:block"></div><div class="fl dec fly nm" style="left:6%;top:80px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="46" style="width:46px;height:auto;display:block"></div>
+<section class="sec sky" id="journal"><div class="fl dec v1 fly" style="left:max(14px,calc(50% - 620px));top:60px;--w:84px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="84" height="113" style="width:84px;height:auto;display:block"></div><div class="fl dec v1b mh cl" style="left:max(14px,calc(50% - 500px));top:24px;--w:110px"><img loading="lazy" decoding="async" src="images/crayon-cloud-large-illustration.png" alt="" width="110" height="65" style="width:110px;height:auto;display:block"></div><div class="fl dec v2 flw" style="right:max(14px,calc(50% - 620px));top:40px;--w:96px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="96" height="121" style="width:96px;height:auto;display:block"></div><div class="fl dec v2b mh sunr" style="right:max(14px,calc(50% - 500px));top:36px;--w:70px"><img loading="lazy" decoding="async" src="images/crayon-sun-illustration.png" alt="" width="70" height="66" style="width:70px;height:auto;display:block"></div>
 <svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFE6CC"/></svg>
 <div class="wrap" style="max-width:900px">
 <div class="rv" style="text-align:center"><span class="rib">Pilot Events</span><div class="dh"><h2>We are testing this with real events</h2></div>
@@ -381,11 +474,12 @@ html{scroll-behavior:smooth}
 <p class="hf rv" style="text-align:center;font-size:24px;font-weight:600;margin:36px 0 22px">Do not wait for the perfect plan. Talk to people, teach the idea, and test it.</p>
 <div style="text-align:center"><a class="pill" href="mailto:hello@littleguestclub.example"><i>→</i>Join a pilot</a></div>
 </div>
+<div class="grs" aria-hidden="true"><div class="gz"><img loading="lazy" decoding="async" class="b gx gl" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b gx gr" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="sp fw" style="left:2.565%;top:6.164%;width:9.701%;--i:0" src="images/crayon-pink-flower-illustration.webp" alt="" width="126" height="111"><img loading="lazy" decoding="async" class="sp fw" style="left:11.707%;top:33.219%;width:7.090%;--i:1" src="images/crayon-yellow-flower-illustration.webp" alt="" width="92" height="72"><img loading="lazy" decoding="async" class="sp lb" style="left:19.076%;top:42.123%;width:7.649%;--i:2" src="images/crayon-ladybug-illustration.webp" alt="" width="99" height="83"><img loading="lazy" decoding="async" class="sp fw" style="left:27.379%;top:0.000%;width:9.795%;--i:3" src="images/crayon-orange-flower-illustration.webp" alt="" width="127" height="110"><img loading="lazy" decoding="async" class="sp fw" style="left:38.106%;top:32.192%;width:6.017%;--i:4" src="images/crayon-teal-flower-illustration.webp" alt="" width="78" height="70"><img loading="lazy" decoding="async" class="sp fw" style="left:48.321%;top:0.685%;width:10.168%;--i:5" src="images/crayon-pink-flower-2-illustration.webp" alt="" width="132" height="113"><img loading="lazy" decoding="async" class="sp fw" style="left:70.616%;top:15.068%;width:7.090%;--i:7" src="images/crayon-yellow-flower-2-illustration.webp" alt="" width="92" height="82"><img loading="lazy" decoding="async" class="sp fw" style="left:78.965%;top:11.644%;width:7.416%;--i:8" src="images/crayon-teal-flower-2-illustration.webp" alt="" width="96" height="85"><img loading="lazy" decoding="async" class="sp fw" style="left:90.112%;top:8.904%;width:7.836%;--i:9" src="images/crayon-orange-flower-2-illustration.webp" alt="" width="102" height="99"></div></div>
 </section>
 
 </main>
 <!-- FOOTER -->
-<footer style="position:relative;margin-top:0;background:linear-gradient(#D96A0B,#B8500A);color:#FFEAD3;padding:56px 0 34px">
+<footer style="position:relative;margin-top:0;background:linear-gradient(#D96A0B,#B8500A);color:#FFEAD3;padding:56px 0 34px"><div class="wsn" aria-hidden="true"><img loading="lazy" decoding="async" src="images/crayon-snail-illustration.png" alt="" width="96" height="84"></div>
 <div style="position:absolute;left:0;right:0;top:-34px;height:40px;overflow:hidden" aria-hidden="true"><svg class="wave2" style="position:absolute;left:0;top:0" width="1920" height="40" viewBox="0 0 1920 40"><path d="M0 40V20q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#F6A04D"/></svg></div>
 <div style="position:absolute;left:0;right:0;top:-24px;height:30px;overflow:hidden" aria-hidden="true"><svg class="wave1" style="position:absolute;left:0;top:0" width="1920" height="30" viewBox="0 0 1920 30"><path d="M0 30V14q30-18 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V30Z" fill="#D96A0B"/></svg></div>
 <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:30px;align-items:center">
@@ -405,6 +499,8 @@ function go(k){var c=i,nx=((k%n)+n)%n,nt={};for(var j=0;j<n;j++){var a=role(j,c)
 function start(){clearInterval(t);if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;t=setInterval(function(){go(i+1)},6800)}
 document.getElementById('prev').onclick=function(){go(i-1);start()};document.getElementById('next').onclick=function(){go(i+1);start()};
 dots.forEach(function(b,j){b.onclick=function(){go(j);start()}});start();
-var m=document.querySelector('.mm');if(m)m.addEventListener('click',function(e){if(e.target.tagName==='A')m.removeAttribute('open')})})();</script>
+var m=document.querySelector('.mm');if(m)m.addEventListener('click',function(e){if(e.target.tagName==='A')m.removeAttribute('open')})})();
+(function(){var d=document.documentElement;if(window.CSS&&CSS.supports&&CSS.supports('animation-timeline:view()'))return;d.classList.add('js');var els=[].slice.call(document.querySelectorAll('.rv,.wk'));if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(function(e){io.observe(e)})})();
+</script>
 </body>
 </html>
