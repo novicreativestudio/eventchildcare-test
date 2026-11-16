@@ -103,7 +103,7 @@ body{margin:0}
 @keyframes sway{50%{transform:rotate(3deg)}}
 .bob{animation:bob 3.2s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-9px)}}
-.wave1{animation:wm 8s linear infinite}.wave2{animation:wm 12s linear infinite reverse}
+.wave1{animation:wm 18s linear infinite}.wave2{animation:wm 27s linear infinite reverse}
 @keyframes wm{to{transform:translateX(-240px)}}
 /* scroll reveal where supported */
 @supports (animation-timeline:view()){
@@ -153,7 +153,7 @@ body{margin:0}
 .mm .ic{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--deep)}.mm .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .mm nav a.cta{grid-column:1/-1;flex-direction:row;background:var(--deep);color:#fff;min-height:48px;border-radius:999px}.mm nav a.cta:hover{background:var(--dd)}
 .mm nav a.cta i{font-style:normal}
-.mmd{position:absolute;right:-14px;top:-34px;width:56px;animation:sway2 4s ease-in-out infinite;pointer-events:none}
+.mmd{position:absolute;right:-12px;bottom:-20px;width:52px;z-index:2;animation:sway2 4s ease-in-out infinite;pointer-events:none}
 @media(max-width:700px){.cap{left:4%;right:4%;bottom:6%;max-width:none;padding:12px 16px 14px}.cap-t{font-size:22px}.cap-s{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.cw{opacity:1}}
 .mct{display:none}.mbr{display:none}
@@ -185,7 +185,7 @@ div:hover>.ico{transform:rotate(-8deg) scale(1.12)}
 @keyframes lbug{0%{transform:translateX(0) rotate(0)}25%{transform:translateX(30%) rotate(3deg)}50%{transform:translateX(58%) rotate(-2deg)}75%{transform:translateX(80%) rotate(3deg)}100%{transform:translateX(100%) rotate(0)}}
 .gz .sn{animation:snail 20s linear infinite}
 @keyframes snail{0%{transform:translateX(-25%) scaleX(1);opacity:0}6%{opacity:1}12.5%{transform:translateX(-5%) scaleX(1.05)}25%{transform:translateX(15%) scaleX(1)}37.5%{transform:translateX(35%) scaleX(1.05)}50%{transform:translateX(55%) scaleX(1)}62.5%{transform:translateX(75%) scaleX(1.05)}75%{transform:translateX(95%) scaleX(1)}90%{opacity:1}100%{transform:translateX(115%) scaleX(1);opacity:0}}
-#journal{padding-bottom:190px}
+#join{padding-bottom:230px}
 @media(min-width:701px){section.sky[style*="padding-top:60px"]{padding-top:96px!important}}
 @media(min-width:701px){section.cream[style*="padding-top:110px"]{padding-top:84px!important}}
 .mq{overflow:hidden;width:100vw;margin:34px 0 0 calc(50% - 50vw);padding:16px 0 20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
@@ -210,9 +210,9 @@ div:hover>.ico{transform:rotate(-8deg) scale(1.12)}
 .dec.bln{right:max(14px,calc(50% - 700px))!important;top:64px!important}
 .dec.g1 img{width:110px!important}.dec.g2 img{width:120px!important}.dec.g3 img{width:84px!important}
 .wsn{position:absolute;left:0;top:-86px;z-index:4;pointer-events:none;animation:wsx 56s linear infinite}
-.wsn img{display:block;scale:-1 1;width:96px;height:auto;transform-origin:50% 90%;animation:wsy 3.6s ease-in-out infinite}
+.wsn img{display:block;scale:-1 1;width:96px;height:auto;transform-origin:50% 100%;animation:wsy 2.8s ease-in-out infinite}
 @keyframes wsx{from{transform:translateX(100vw)}to{transform:translateX(-140px)}}
-@keyframes wsy{0%{transform:translateY(0) rotate(-14deg)}25%{transform:translateY(-6px) rotate(0)}50%{transform:translateY(0) rotate(12deg)}75%{transform:translateY(6px) rotate(0)}100%{transform:translateY(0) rotate(-14deg)}}
+@keyframes wsy{0%,100%{transform:translateY(0) rotate(-2deg) scaleX(1)}50%{transform:translateY(-3px) rotate(2deg) scaleX(1.06)}}
 
 
 @media(max-width:700px){
@@ -232,14 +232,13 @@ header.hdr{padding-bottom:8px;min-height:calc(var(--bw) + 46px)}.mbr{display:inl
 .mct svg{width:22px;height:22px}
 .hero{--sw:100vw}
 .hv{height:auto;display:grid;overflow:hidden}.sl{position:relative!important;grid-area:1/1;left:auto!important;margin-left:0!important;width:100%!important;height:auto!important;overflow:hidden}
-.sl>img{position:absolute;top:0;left:0;width:100%!important;height:calc(100vw*.74)!important;object-position:50% 30%}.sl.act>img{animation:none!important}
+.sl>img{position:absolute;top:0;left:0;width:100%!important;height:calc(100vw*.74)!important;object-position:50% 30%}.sl>img{transform-origin:50% 100%}.sl.act>img{animation:kbm 10s ease-out both}
 .cap{position:relative;left:auto;right:auto;bottom:auto;margin:calc(100vw*.74 + 12px) 3.5% 14px;max-width:none;padding:12px 16px 14px}
 .cap-t{font-size:clamp(19px,6vw,24px)}
 .arr{top:calc(100vw*.37);margin-top:-22px;width:40px;height:40px}
 .arr svg{width:18px;height:18px}
-.wvb{height:18px}.wvs{height:18px;animation:none!important}
+.wvb{height:18px}.wvs{height:18px;animation-duration:120s}.wvs.r{animation-duration:160s}
 .hv>.wvb{top:-1px!important;bottom:auto!important}.hv>.wvb+.wvb{top:calc(100vw*.74 - 17px)!important;transform:none}
-.wave1,.wave2{animation:none!important}
 .mh{display:none!important}
 /* fluid rhythm */
 .sec{padding:clamp(56px,15vw,66px) 0 clamp(34px,10vw,44px)!important}
@@ -250,7 +249,7 @@ header.hdr{padding-bottom:8px;min-height:calc(var(--bw) + 46px)}.mbr{display:inl
 .sec .rv>p{margin-top:12px!important}
 .dec:not(.hd) img{width:clamp(40px,12.5vw,56px)!important}
 .dec.snl img{width:clamp(64px,20vw,84px)!important}
-.dec.sunr{left:max(8px,2.5vw)!important;top:10px!important}
+.dec.sunr{left:max(8px,2.5vw)!important;top:10px!important}.dec.v2.sunr{left:auto!important}
 .dec.f1{right:max(8px,2.5vw)!important;top:6px!important}
 .dec.f2{left:max(8px,2.5vw)!important;top:6px!important}
 .dec.f1 img,.dec.f2 img{width:clamp(36px,11vw,48px)!important}
@@ -258,7 +257,7 @@ header.hdr{padding-bottom:8px;min-height:calc(var(--bw) + 46px)}.mbr{display:inl
 .card:active,.pl:active,.pill:active{transform:scale(.97)}
 section.sky[style*="padding-top:60px"]{padding-top:calc(19vw + 42px)!important}
 .dec.g1{left:4%!important;top:14px!important}.dec.g1 img{width:clamp(56px,17vw,76px)!important}
-.dec.g2{left:calc(4% + clamp(60px,19vw,84px))!important;top:12px!important}.dec.g2 img{width:clamp(64px,19vw,88px)!important}
+.dec.g2{left:calc(4% + clamp(70px,22vw,96px))!important;top:12px!important}.dec.g2 img{width:clamp(64px,19vw,88px)!important}
 .dec.g3{right:4%!important;top:10px!important}.dec.g3 img{width:clamp(48px,14vw,64px)!important}
 .dec.f1{right:max(8px,2.5vw)!important;top:6px!important}.dec.f2{left:max(8px,2.5vw)!important;top:6px!important}
 .dec.bln{right:4%!important;top:8px!important}.sw{display:none!important}section.apr{padding-bottom:26px!important}section.evs{padding-top:clamp(30px,9vw,40px)!important}
@@ -267,8 +266,8 @@ section.sky[style*="padding-top:60px"]{padding-top:calc(19vw + 42px)!important}
 .wsn{top:calc(-42px - 5.5vw)}.wsn img{width:clamp(56px,18vw,76px)}
 .ico{width:52px;height:52px}.ico.lg{width:64px;height:64px}
 .wk{margin-top:22px;width:100%}
-#journal{padding-bottom:calc(40px + 20vw)!important}
-.grs{bottom:-6px}.lbw{width:34px;bottom:calc(15vw + 16px)}.gz{width:165vw;margin:0 0 0 -32vw}.gz .gx{display:none}
+#join{padding-bottom:calc(84px + 20vw)!important}
+.grs{bottom:-6px}.lbw{width:34px;bottom:calc(15vw + 26px)}.gz{width:165vw;margin:0 0 0 -32vw}.gz .gx{display:none}
 }
 /* reveal fallback for browsers without scroll-driven animations */
 @supports not (animation-timeline:view()){
@@ -276,6 +275,34 @@ html.js .rv{opacity:0;transform:translateY(30px);transition:opacity .7s ease,tra
 html.js .rv.in{opacity:1;transform:none}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.t{opacity:1}}
+
+/* hiring: teal = recruiting, orange stays the customer colour */
+.pg a.hbar{display:flex;justify-content:center;align-items:center;gap:6px 12px;flex-wrap:wrap;position:relative;z-index:31;background:#0F6F68;color:#fff;text-decoration:none;font:600 14px/1.35 var(--hf);padding:9px 16px;text-align:center}
+.hbar b{background:var(--yl);color:var(--ink);font:800 11px/1 var(--hf);letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;animation:hbp 2.6s ease-in-out infinite}
+.hbar u{text-decoration:none;font-weight:800;border-bottom:2px solid var(--yl);padding-bottom:1px;white-space:nowrap}
+.hbar:hover u{border-bottom-color:#fff}
+@keyframes hbp{50%{transform:scale(1.07) rotate(-2deg)}}
+.pg .util a.hire{background:#0F6F68;color:#fff;padding:6px 12px 6px 10px;border-radius:999px}
+.util a.hire::before{background:var(--yl)}.util a.hire::after{display:none}
+.pg .util a.hire:hover{color:#fff;background:#0B5852}
+.mm nav a.mhire{grid-column:1/-1;flex-direction:row;min-height:60px;border:2px dashed #16877E;gap:10px}
+.mhire em{font:800 10px/1 var(--hf);font-style:normal;letter-spacing:.1em;text-transform:uppercase;background:#0F6F68;color:#fff;padding:5px 9px;border-radius:999px}
+.hq{text-align:center;margin:18px 0 0;font:600 14px/1.5 var(--hf);color:var(--mut)}
+.pg .hq a{color:#0F6F68;font-weight:800;white-space:nowrap}
+@keyframes kbm{from{transform:scale(1.1)}to{transform:scale(1)}}
+@keyframes flym{0%,100%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(-5px,-7px) rotate(4deg)}}
+@keyframes driftm{to{transform:translateX(8px)}}
+@media(max-width:700px){
+.pg a.hbar{font-size:13px;padding:8px 10px;gap:4px 8px}.hbar .lg{display:none}
+.fly{animation-name:flym;animation-duration:5s}.cl{animation-name:driftm}.flw{animation-name:sway2m}
+#news .dec.fly{display:none}
+.hq{font-size:13px}
+}
+@keyframes sway2m{50%{transform:rotate(4deg)}}
+@keyframes flyl{0%,100%{transform:translate(0,0) rotate(4deg)}30%{transform:translate(-26px,-14px) rotate(-4deg)}60%{transform:translate(-46px,6px) rotate(3deg)}}
+@keyframes flyn{0%,100%{transform:translate(0,0) rotate(-4deg)}30%{transform:translate(12px,-14px) rotate(4deg)}60%{transform:translate(22px,6px) rotate(-3deg)}}
+@media(min-width:701px){.pen{right:78px}#flow .dec.fly{animation-name:flyl}.dec.v1.fly{animation-name:flyn}}
+@media(min-width:701px) and (max-width:1250px){.mh{display:none!important}.pen{right:140px}.dec.g2{left:150px!important}}
 
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 html{scroll-behavior:smooth}
@@ -286,6 +313,7 @@ html{scroll-behavior:smooth}
 <body>
 <a href="#main" class="sr">Skip to content</a>
 <div class="pg">
+<a class="hbar" href="#join"><b>Now hiring</b><span>Qualified sitters<span class="lg"> for weekend and evening events in Metro Vancouver</span></span><u>Join our team →</u></a>
 
 <!-- HEADER -->
 <header class="hdr" style="position:relative;background:var(--sky);padding-top:10px;z-index:30">
@@ -295,10 +323,10 @@ html{scroll-behavior:smooth}
 <div class="wrap">
 <div class="toprow" style="display:flex;justify-content:space-between;align-items:center;height:24px;gap:16px">
 <a href="mailto:hello@littleguestclub.example" class="hf em" style="font-weight:800;font-size:17px;color:var(--deep);text-decoration:none">hello@littleguestclub.example</a>
-<div class="util"><a href="#about">About</a><a href="#flow">Packages</a><a href="#journal">Pilot events</a><a href="mailto:hello@littleguestclub.example">Contact</a></div>
+<div class="util"><a href="#about">About</a><a href="#flow">Packages</a><a href="#journal">Pilot events</a><a class="hire" href="#join">Now hiring · Join our team</a><a href="mailto:hello@littleguestclub.example">Contact</a></div>
 </div>
 <a class="mct" href="mailto:hello@littleguestclub.example"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 8l8 6 8-6"/></svg>Contact</a>
-<details class="mm"><summary><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</summary><nav aria-label="Menu"><img loading="lazy" decoding="async" class="mmd" src="images/crayon-flower-illustration.png" alt="" width="56"><a href="#top" style="--c:#FFE6CC;--d:0"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></span>Home</a><a href="#about" style="--c:#DDF1EE;--d:1"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg></span>About</a><a href="#approach" style="--c:#FFE0E8;--d:2"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg></span>Approach</a><a href="#events" style="--c:#FFF1BF;--d:3"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3zM3 10h18M8 3v4M16 3v4"/></svg></span>Events</a><a href="#flow" style="--c:#E6F2D5;--d:4"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"/></svg></span>Packages</a><a href="#journal" style="--c:#FFDCC8;--d:5"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg></span>Pilot events</a><a class="cta" href="mailto:hello@littleguestclub.example" style="--d:6"><i>→</i>Contact us</a></nav></details>
+<details class="mm"><summary><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</summary><nav aria-label="Menu"><img loading="lazy" decoding="async" class="mmd" src="images/crayon-flower-illustration.png" alt="" width="56"><a href="#top" style="--c:#FFE6CC;--d:0"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></span>Home</a><a href="#about" style="--c:#DDF1EE;--d:1"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg></span>About</a><a href="#approach" style="--c:#FFE0E8;--d:2"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg></span>Approach</a><a href="#events" style="--c:#FFF1BF;--d:3"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3zM3 10h18M8 3v4M16 3v4"/></svg></span>Events</a><a href="#flow" style="--c:#E6F2D5;--d:4"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"/></svg></span>Packages</a><a href="#journal" style="--c:#FFDCC8;--d:5"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg></span>Pilot events</a><a class="mhire" href="#join" style="--c:#DDF4F1;--d:6"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a4 4 0 100-8 4 4 0 000 8zM2 21v-1a7 7 0 0114 0v1M19 8v6M16 11h6"/></svg></span>Join our team<em>Now hiring</em></a><a class="cta" href="mailto:hello@littleguestclub.example" style="--d:7"><i>→</i>Contact us</a></nav></details>
 <nav aria-label="Main" class="nav" style="margin-top:6px">
 <a class="ni cur" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg><b>Home</b><i>Welcome</i></a><a class="ni " href="#about"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg><b>About</b><i>Who we are</i></a><a class="ni " href="#approach"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg><b>Approach</b><i>How we care</i></a>
 <a class="logo" href="#top" aria-label="Little Guest Club home"><img loading="lazy" decoding="async" class="lsun" src="images/crayon-sun-illustration.png" alt="" width="110" height="105"><b>Little Guest Club</b><i>EVENT CHILDCARE<span class="lm"> · METRO VANCOUVER</span></i></a>
@@ -350,7 +378,7 @@ html{scroll-behavior:smooth}
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px">
 <div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/badge-childcare-qualification-graduation-cap.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Qualified sitters</p><p style="margin:0;font-size:13px;color:var(--mut)">Every sitter holds childcare qualifications, like the staff you would expect at a daycare.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/icon-event-plan-checklist-clipboard.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Daycare-style routine</p><p style="margin:0;font-size:13px;color:var(--mut)">A calm, structured play plan for the ages of the children who are coming.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/badge-first-aid-certified-sitter.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Safety first</p><p style="margin:0;font-size:13px;color:var(--mut)">Emergency information collected in advance and a defined play area.</p></div><div style="background:var(--cream);border-radius:14px;padding:16px 14px;border:2px dashed var(--line)"><img loading="lazy" decoding="async" class="ico" src="images/badge-safety-check-shield.webp" alt="" width="64" height="64"><p class="hf" style="margin:0 0 4px;font-size:17px;font-weight:800;color:var(--deep)">Clear rules for parents</p><p style="margin:0;font-size:13px;color:var(--mut)">Simple check-in and check-out, so everyone knows where the children are.</p></div>
 </div></div>
-<div style="text-align:center;margin-top:40px"><a class="pill" href="#about"><i>→</i>About Us</a></div><div class="wk" aria-hidden="true"><img loading="lazy" decoding="async" class="b" src="images/crayon-shoe-path-dots.webp" alt="" width="1300" height="220"><img loading="lazy" decoding="async" class="sp st" style="left:0.484%;top:26.934%;width:18.402%;--i:0" src="images/crayon-shoe-footprint-step-1.webp" alt="" width="239" height="161"><img loading="lazy" decoding="async" class="sp st" style="left:1.308%;top:5.158%;width:5.424%;--i:1" src="images/crayon-shoe-footprint-step-2.webp" alt="" width="71" height="69"><img loading="lazy" decoding="async" class="sp st" style="left:22.567%;top:26.648%;width:6.877%;--i:2" src="images/crayon-shoe-footprint-step-3.webp" alt="" width="89" height="110"><img loading="lazy" decoding="async" class="sp st" style="left:27.700%;top:35.530%;width:7.361%;--i:3" src="images/crayon-shoe-footprint-step-4.webp" alt="" width="96" height="118"><img loading="lazy" decoding="async" class="sp st" style="left:39.031%;top:0.000%;width:5.375%;--i:4" src="images/crayon-shoe-footprint-step-5.webp" alt="" width="70" height="65"><img loading="lazy" decoding="async" class="sp st" style="left:41.211%;top:13.467%;width:15.012%;--i:5" src="images/crayon-shoe-footprint-step-6.webp" alt="" width="195" height="159"><img loading="lazy" decoding="async" class="sp st" style="left:63.487%;top:28.940%;width:7.070%;--i:6" src="images/crayon-shoe-footprint-step-7.webp" alt="" width="92" height="115"><img loading="lazy" decoding="async" class="sp st" style="left:68.910%;top:45.845%;width:9.346%;--i:7" src="images/crayon-shoe-footprint-step-8.webp" alt="" width="122" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:79.855%;top:17.192%;width:16.610%;--i:8" src="images/crayon-shoe-footprint-step-9.webp" alt="" width="216" height="144"></div>
+<div style="text-align:center;margin-top:40px"><a class="pill" href="#about"><i>→</i>About Us</a></div><p class="hq">Qualified in childcare? <a href="#join">Join our sitter team →</a></p><div class="wk" aria-hidden="true"><img loading="lazy" decoding="async" class="b" src="images/crayon-shoe-path-dots.webp" alt="" width="1300" height="220"><img loading="lazy" decoding="async" class="sp st" style="left:0.484%;top:26.934%;width:18.402%;--i:0" src="images/crayon-shoe-footprint-step-1.webp" alt="" width="239" height="161"><img loading="lazy" decoding="async" class="sp st" style="left:1.308%;top:5.158%;width:5.424%;--i:1" src="images/crayon-shoe-footprint-step-2.webp" alt="" width="71" height="69"><img loading="lazy" decoding="async" class="sp st" style="left:22.567%;top:26.648%;width:6.877%;--i:2" src="images/crayon-shoe-footprint-step-3.webp" alt="" width="89" height="110"><img loading="lazy" decoding="async" class="sp st" style="left:27.700%;top:35.530%;width:7.361%;--i:3" src="images/crayon-shoe-footprint-step-4.webp" alt="" width="96" height="118"><img loading="lazy" decoding="async" class="sp st" style="left:39.031%;top:0.000%;width:5.375%;--i:4" src="images/crayon-shoe-footprint-step-5.webp" alt="" width="70" height="65"><img loading="lazy" decoding="async" class="sp st" style="left:41.211%;top:13.467%;width:15.012%;--i:5" src="images/crayon-shoe-footprint-step-6.webp" alt="" width="195" height="159"><img loading="lazy" decoding="async" class="sp st" style="left:63.487%;top:28.940%;width:7.070%;--i:6" src="images/crayon-shoe-footprint-step-7.webp" alt="" width="92" height="115"><img loading="lazy" decoding="async" class="sp st" style="left:68.910%;top:45.845%;width:9.346%;--i:7" src="images/crayon-shoe-footprint-step-8.webp" alt="" width="122" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:79.855%;top:17.192%;width:16.610%;--i:8" src="images/crayon-shoe-footprint-step-9.webp" alt="" width="216" height="144"></div>
 </div>
 </section>
 
@@ -361,7 +389,7 @@ html{scroll-behavior:smooth}
 <svg class="pen" width="110" height="120" viewBox="0 0 110 120" aria-hidden="true"><g transform="translate(18,116) rotate(-14)"><rect x="-8" y="-96" width="16" height="92" rx="2" fill="#6DBE4B"/><path d="M-8 -96L0 -120L8 -96Z" fill="#F3D2A2"/></g><g transform="translate(42,116) rotate(-5)"><rect x="-8" y="-96" width="16" height="92" rx="2" fill="#2DB5AA"/><path d="M-8 -96L0 -120L8 -96Z" fill="#F3D2A2"/></g><g transform="translate(66,116) rotate(4)"><rect x="-8" y="-96" width="16" height="92" rx="2" fill="#F28A1E"/><path d="M-8 -96L0 -120L8 -96Z" fill="#F3D2A2"/></g></svg>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:34px">
 <div class="rv"><div class="clip"><div class="cin"><h3>News</h3>
-<div class="nw"><img loading="lazy" decoding="async" src="images/happy-birthday-balloons-kids-party-decor.jpg" alt=""><div><time>2026.11.01</time><a href="#news">Now taking inquiries for pilot events</a></div></div><div class="nw"><img loading="lazy" decoding="async" src="images/kids-corner-craft-table-event-childcare.jpg" alt=""><div><time>2026.10.20</time><a href="#news">Planners and venues: let's talk</a></div></div>
+<div class="nw"><img loading="lazy" decoding="async" src="images/qualified-sitter-reading-to-children-wedding-event.jpg" alt=""><div><time>2026.11.16</time><a href="#join">We are recruiting qualified sitters</a></div></div><div class="nw"><img loading="lazy" decoding="async" src="images/happy-birthday-balloons-kids-party-decor.jpg" alt=""><div><time>2026.11.01</time><a href="#news">Now taking inquiries for pilot events</a></div></div><div class="nw"><img loading="lazy" decoding="async" src="images/kids-corner-craft-table-event-childcare.jpg" alt=""><div><time>2026.10.20</time><a href="#news">Planners and venues: let's talk</a></div></div>
 <div style="text-align:center;margin-top:16px"><a class="pill" href="#news"><i>→</i>View all news</a></div></div></div></div>
 <div class="rv"><div class="clip"><div class="cin"><h3>Journal</h3>
 <div class="nw"><img loading="lazy" decoding="async" src="images/sitter-leading-circle-time-event-kids.jpg" alt=""><div><time>2026.11.03</time><a href="#journal">Why child guests change how your event feels</a></div></div>
@@ -474,6 +502,19 @@ html{scroll-behavior:smooth}
 <p class="hf rv" style="text-align:center;font-size:24px;font-weight:600;margin:36px 0 22px">Do not wait for the perfect plan. Talk to people, teach the idea, and test it.</p>
 <div style="text-align:center"><a class="pill" href="mailto:hello@littleguestclub.example"><i>→</i>Join a pilot</a></div>
 </div>
+</section>
+
+<!-- JOIN -->
+<section class="sec cream" id="join"><div class="fl dec v1 cl" style="left:max(14px,calc(50% - 620px));top:44px;--w:120px"><img loading="lazy" decoding="async" src="images/crayon-cloud-large-illustration.png" alt="" width="120" height="71" style="width:120px;height:auto;display:block"></div><div class="fl dec v2 flw" style="right:max(14px,calc(50% - 620px));top:36px;--w:90px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="90" height="113" style="width:90px;height:auto;display:block"></div>
+<svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFF9EA"/></svg>
+<div class="wrap" style="max-width:1000px">
+<div class="rv" style="text-align:center"><span class="rib">Join Our Team</span><div class="dh"><h2>Qualified sitters wanted</h2></div>
+<p style="margin:16px auto 0;font-size:15px;max-width:640px">We are building a small team of qualified sitters for weekend and evening events across Metro Vancouver. If you work in childcare and enjoy a good party, we would love to hear from you.</p></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:20px;margin-top:36px">
+<div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" src="images/badge-childcare-qualification-graduation-cap.webp" alt="" width="64" height="64" style="width:64px;height:64px;display:block;margin:0 auto 10px"><h3 class="hf" style="margin:0 0 6px;font-size:20px;font-weight:800;color:var(--deep)">Who we are looking for</h3><p style="margin:0;font-size:14px;color:var(--mut)">Childcare qualifications and hands-on experience with young children. First aid and a background check are part of our process.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" src="images/icon-event-plan-checklist-clipboard.webp" alt="" width="64" height="64" style="width:64px;height:64px;display:block;margin:0 auto 10px"><h3 class="hf" style="margin:0 0 6px;font-size:20px;font-weight:800;color:var(--deep)">How it works</h3><p style="margin:0;font-size:14px;color:var(--mut)">Event by event, mostly weekends and evenings, about 3 to 4 hours each. The plan and the kids corner are prepared in advance. Say yes only to the dates that suit you.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" src="images/icon-caring-hands-heart.webp" alt="" width="64" height="64" style="width:64px;height:64px;display:block;margin:0 auto 10px"><h3 class="hf" style="margin:0 0 6px;font-size:20px;font-weight:800;color:var(--deep)">How to apply</h3><p style="margin:0;font-size:14px;color:var(--mut)">Email us a few lines about your qualifications, your experience and the areas you can travel to. No formal resume needed to start.</p></div>
+</div>
+<div class="rv" style="text-align:center;margin-top:34px"><a class="pill" href="mailto:hello@littleguestclub.example?subject=Sitter%20application"><i>→</i>Apply by email</a></div>
+</div>
 <div class="grs" aria-hidden="true"><span class="lbw"><img loading="lazy" decoding="async" src="images/crayon-ladybug-illustration.webp" alt="" width="99" height="83"></span><div class="gz"><img loading="lazy" decoding="async" class="b gx gl" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b gx gr" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="sp fw" style="left:2.565%;top:6.164%;width:9.701%;--i:0" src="images/crayon-pink-flower-illustration.webp" alt="" width="126" height="111"><img loading="lazy" decoding="async" class="sp fw" style="left:11.707%;top:33.219%;width:7.090%;--i:1" src="images/crayon-yellow-flower-illustration.webp" alt="" width="92" height="72"><img loading="lazy" decoding="async" class="sp fw" style="left:27.379%;top:0.000%;width:9.795%;--i:3" src="images/crayon-orange-flower-illustration.webp" alt="" width="127" height="110"><img loading="lazy" decoding="async" class="sp fw" style="left:38.106%;top:32.192%;width:6.017%;--i:4" src="images/crayon-teal-flower-illustration.webp" alt="" width="78" height="70"><img loading="lazy" decoding="async" class="sp fw" style="left:48.321%;top:0.685%;width:10.168%;--i:5" src="images/crayon-pink-flower-2-illustration.webp" alt="" width="132" height="113"><img loading="lazy" decoding="async" class="sp fw" style="left:64.2%;top:14%;width:7.416%;--i:6" src="images/crayon-yellow-flower-2-illustration.webp" alt="" width="92" height="82"><img loading="lazy" decoding="async" class="sp fw" style="left:19.4%;top:18%;width:7.2%;--i:3" src="images/crayon-teal-flower-2-illustration.webp" alt="" width="96" height="85"><img loading="lazy" decoding="async" class="sp fw" style="left:70.616%;top:15.068%;width:7.090%;--i:7" src="images/crayon-yellow-flower-2-illustration.webp" alt="" width="92" height="82"><img loading="lazy" decoding="async" class="sp fw" style="left:78.965%;top:11.644%;width:7.416%;--i:8" src="images/crayon-teal-flower-2-illustration.webp" alt="" width="96" height="85"><img loading="lazy" decoding="async" class="sp fw" style="left:90.112%;top:8.904%;width:7.836%;--i:9" src="images/crayon-orange-flower-2-illustration.webp" alt="" width="102" height="99"></div></div>
 </section>
 
@@ -481,11 +522,11 @@ html{scroll-behavior:smooth}
 <!-- FOOTER -->
 <footer style="position:relative;margin-top:0;background:linear-gradient(#D96A0B,#B8500A);color:#FFEAD3;padding:56px 0 34px"><div class="wsn" aria-hidden="true"><img loading="lazy" decoding="async" src="images/crayon-snail-illustration.png" alt="" width="96" height="84"></div>
 <div style="position:absolute;left:0;right:0;top:-34px;height:40px;overflow:hidden" aria-hidden="true"><svg class="wave2" style="position:absolute;left:0;top:0" width="1920" height="40" viewBox="0 0 1920 40"><path d="M0 40V20q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#F6A04D"/></svg></div>
-<div style="position:absolute;left:0;right:0;top:-24px;height:30px;overflow:hidden" aria-hidden="true"><svg class="wave1" style="position:absolute;left:0;top:0" width="1920" height="30" viewBox="0 0 1920 30"><path d="M0 30V14q30-18 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V30Z" fill="#D96A0B"/></svg></div>
+<div style="position:absolute;left:0;right:0;top:-24px;height:30px;overflow:hidden;z-index:5" aria-hidden="true"><svg class="wave1" style="position:absolute;left:0;top:0" width="1920" height="30" viewBox="0 0 1920 30"><path d="M0 30V14q30-18 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V30Z" fill="#D96A0B"/></svg></div>
 <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:30px;align-items:center">
 <div><p class="hf" style="margin:0 0 6px;font-weight:800;font-size:28px;color:#fff">Little Guest Club</p><p style="margin:0;font-size:14px;line-height:1.7">Event childcare · Metro Vancouver, BC<br><a href="mailto:hello@littleguestclub.example" style="color:#fff">hello@littleguestclub.example</a></p></div>
 <ul class="hf" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 4px;font-size:15px;font-weight:600">
-<li><a href="#top" style="color:#fff;text-decoration:none;margin-right:10px">Home <span style="opacity:.6">/</span></a></li><li><a href="#about" style="color:#fff;text-decoration:none;margin-right:10px">About <span style="opacity:.6">/</span></a></li><li><a href="#approach" style="color:#fff;text-decoration:none;margin-right:10px">Approach <span style="opacity:.6">/</span></a></li><li><a href="#events" style="color:#fff;text-decoration:none;margin-right:10px">Events <span style="opacity:.6">/</span></a></li><li><a href="#flow" style="color:#fff;text-decoration:none;margin-right:10px">Flow <span style="opacity:.6">/</span></a></li><li><a href="#journal" style="color:#fff;text-decoration:none;margin-right:10px">Journal <span style="opacity:.6">/</span></a></li>
+<li><a href="#top" style="color:#fff;text-decoration:none;margin-right:10px">Home <span style="opacity:.6">/</span></a></li><li><a href="#about" style="color:#fff;text-decoration:none;margin-right:10px">About <span style="opacity:.6">/</span></a></li><li><a href="#approach" style="color:#fff;text-decoration:none;margin-right:10px">Approach <span style="opacity:.6">/</span></a></li><li><a href="#events" style="color:#fff;text-decoration:none;margin-right:10px">Events <span style="opacity:.6">/</span></a></li><li><a href="#flow" style="color:#fff;text-decoration:none;margin-right:10px">Flow <span style="opacity:.6">/</span></a></li><li><a href="#journal" style="color:#fff;text-decoration:none;margin-right:10px">Journal <span style="opacity:.6">/</span></a></li><li><a href="#join" style="color:#fff;text-decoration:none;margin-right:10px">Join us <span style="opacity:.6">/</span></a></li>
 </ul>
 </div>
 <div class="wrap" style="margin-top:26px;padding-top:16px;border-top:2px dotted rgba(255,255,255,.35);font-size:13px">© 2026 Little Guest Club. All rights reserved.</div>
