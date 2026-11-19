@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Little Guest Club | Qualified Event Childcare in Metro Vancouver</title>
-<meta name="description" content="Daycare-like event childcare with qualified sitters for weddings, birthday parties and corporate events in Metro Vancouver, BC. Packages: 3 hours, 4 hours, kids corner, extra sitter.">
-<link rel="canonical" href="https://littleguestclub.example/">
-<meta property="og:type" content="website"><meta property="og:title" content="Little Guest Club | Qualified Event Childcare in Metro Vancouver"><meta property="og:description" content="Parents enjoy the party. Kids are cared for by qualified sitters."><meta property="og:image" content="https://littleguestclub.example/images/event-childcare-story-time-garden-wedding-vancouver.jpg">
+<title>Event Childcare Vancouver | SafeGarden on Wheels</title>
+<meta name="description" content="On-site event childcare in Metro Vancouver for weddings, birthday parties and corporate events. SafeGarden on Wheels offers qualified sitters, kids corner activities and flexible event care.">
+<meta property="og:type" content="website"><meta property="og:title" content="SafeGarden on Wheels | Event Childcare in Metro Vancouver"><meta property="og:description" content="On-site childcare and kids corner activities for weddings, parties and corporate events across Metro Vancouver.">
 <meta name="theme-color" content="#F28A1E">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/fredoka-brand.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
 <style>
@@ -19,23 +19,80 @@ body{margin:0}
 .pg a{color:var(--deep)}
 .wrap{max-width:1150px;margin:0 auto;padding:0 15px;position:relative}
 .hf{font-family:var(--hf)}
-/* header */
-.nav{display:flex;align-items:center;justify-content:center}
-.ni{width:127px;height:95px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:var(--ink);border-left:2px dotted #E7A25D;transition:color .2s}
+/* ===== Header: wordmark + navigation. Every header rule lives in this block. ===== */
+@font-face{font-family:"Fredoka Brand";src:url(fonts/fredoka-brand.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Fredoka Brand Fallback";src:local("Arial Bold"),local("Arial-BoldMT"),local("Arial");size-adjust:92%}
+.hdr{--bf:"Fredoka Brand","Fredoka Brand Fallback",ui-rounded,"Arial Rounded MT Bold",sans-serif;--btn:52px;position:relative;z-index:30;background:var(--sky);padding:6px 0 20px}
+.hdr>.wrap{display:flex;align-items:center;gap:20px}
+/* Wordmark: a centred crayon-lettered lockup. SafeGarden leads, "on Wheels" follows at 60% in the same rust colour, the tagline is kept for search engines. */
+.logo{position:relative;isolation:isolate;flex:none;display:grid;justify-items:center;padding:.34em 1.02em .42em .62em;font-size:clamp(44px,3.6vw,50px);color:#A3430D;text-decoration:none;line-height:1}
+/* Crayon companions, all sized in em so they scale with the wordmark: cloud behind "Safe", sun after "Garden",
+   flower before "on Wheels", road + wheel underneath it. Motion is slow and small; it stops for reduced-motion users. */
+.bd{position:absolute;display:block;height:auto;pointer-events:none}
+.bd-cloud{left:0;top:.02em;width:1.62em;z-index:-1;animation:bdDrift 7s ease-in-out infinite alternate}
+.bd-sun{right:0;top:0;width:1.06em;animation:spin 40s linear infinite}
+.bd-flower{right:calc(100% - .02em);bottom:-.62em;width:1em;transform-origin:50% 100%;animation:bdSway 4s ease-in-out infinite}
+.bd-road{position:absolute;left:-.15em;top:calc(100% - .52em);width:6.2em;height:auto;overflow:visible}
+.bd-path{stroke-dasharray:1;animation:bdDraw 1.4s ease-out .3s both}
+.bd-wheel{transform-box:fill-box;transform-origin:center;animation:spin 3s linear infinite}
+.bd-speed path{animation:bdWhoosh 1.5s ease-in-out infinite}.bd-speed path+path{animation-delay:.25s}
+@keyframes bdDrift{to{transform:translateX(.08em)}}
+@keyframes bdSway{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes bdDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes bdWhoosh{0%,100%{opacity:.25;transform:translateX(-3px)}50%{opacity:1;transform:translateX(3px)}}
+.brand-primary{font:700 1em/.92 var(--bf);letter-spacing:-.015em}
+.brand-secondary{position:relative;margin-top:.02em;font:700 .6em/1 var(--bf);letter-spacing:.01em}
+/* Crayon grain: a tiny inline noise texture clipped to the letters (no extra request). Solid colour is the fallback. */
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.brand-primary,.brand-secondary{color:transparent;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .72 0 0 0 0 .42 0 0 0 1.3 -.68'/%3E%3C/filter%3E%3Crect width='140' height='140' fill='%23A3430D'/%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E") 0 0/140px;-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 2px rgba(255,250,240,.9))}}
+@media(forced-colors:active){.brand-primary,.brand-secondary{color:LinkText;background:none;filter:none}}
+/* The tagline stays in the HTML for search engines and screen readers; the crayon road takes its place visually. */
+.brand-tag{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Desktop navigation: compact items on the right, so the wordmark is never squeezed between them. */
+.nav{display:flex;margin-left:auto}
+.ni{width:92px;height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:var(--ink);border-left:2px dotted #E7A25D;transition:color .2s}
 .ni.last{border-right:2px dotted #E7A25D}
-.ni svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
+.ni svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
 .ni b{font:700 15px/1.1 var(--hf)}
-.ni i{font:700 9px/1 var(--hf);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
-.ni:hover{color:var(--deep)}.ni:hover svg{transform:translateY(-4px) rotate(-8deg)}
+.ni i{font:700 9px/1 var(--hf);font-style:normal;letter-spacing:.08em;white-space:nowrap;text-transform:uppercase;color:var(--mut)}
 .ni::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--or);margin-top:3px}
-.ni.cur{color:var(--deep)}.ni.cur::after{background:var(--deep);transform:scale(1.5)}
-.logo{width:358px;text-align:center;text-decoration:none;display:block;position:relative}.lsun{position:absolute;left:-30px;top:-6px;width:46px;height:auto;animation:spin 60s linear infinite}@media(max-width:1000px){.lsun{display:none}}
-.logo b{display:block;white-space:nowrap;font:800 37px/1 var(--hf);color:var(--deep);text-shadow:2px 0 #fff,-2px 0 #fff,0 2px #fff,0 -2px #fff,2px 2px #fff,-2px -2px #fff,2px -2px #fff,-2px 2px #fff,0 4px 0 #fff}
-.logo i{display:inline-block;margin-top:7px;background:var(--or);color:#fff;font:700 10px/1 var(--hf);font-style:normal;letter-spacing:.14em;padding:7px 26px;clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%)}
-.util{display:flex;gap:18px;font:800 12px/1 Inter,sans-serif;justify-content:flex-end}
-.util a{color:var(--ink);text-decoration:none;display:flex;gap:6px;align-items:center}
-.util a::before{content:"";width:12px;height:9px;background:var(--or);border-radius:2px 2px 2px 8px}
-@media(max-width:1000px){.ni{display:none}.logo{width:auto;text-align:left;padding-right:90px}.logo b{font-size:32px}.util{display:none}}
+.ni:hover,.ni.cur{color:var(--deep)}.ni:hover svg{transform:translateY(-4px) rotate(-8deg)}
+.ni.cur::after{background:var(--deep);transform:scale(1.5)}
+/* Booking CTA (desktop + tablet) and Menu button (tablet + mobile) */
+.pg a.hcta{flex:none;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 18px 0 14px;border-radius:999px;font:800 15px/1 var(--hf);text-decoration:none;white-space:nowrap}
+.mm summary{min-width:var(--btn);height:var(--btn);padding:0 10px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-radius:16px;color:#fff;font:800 10px/1 var(--hf);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.mm{display:none}
+.mm{position:relative}
+.mm summary{list-style:none;background:var(--deep);box-shadow:0 4px 0 var(--dd)}
+.mm summary::-webkit-details-marker{display:none}
+.mm .bars{display:grid;gap:4px;width:20px;justify-items:center}.mm .bars i{display:block;width:18px;height:3px;border-radius:3px;background:#fff;transition:transform .3s,opacity .3s}
+.mm[open] .bars i:nth-child(1){transform:translateY(7px) rotate(45deg)}.mm[open] .bars i:nth-child(2){opacity:0}.mm[open] .bars i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mm nav{position:absolute;right:0;top:calc(100% + 12px);width:min(340px,calc(100vw - 30px));box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px;background:#fff;border-radius:26px;border:3px solid var(--line);box-shadow:0 6px 0 rgba(143,63,8,.15),0 20px 40px rgba(60,30,10,.2);animation:mpop .35s cubic-bezier(.3,1.5,.5,1) both;transform-origin:90% 0}
+.mm nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:96px;padding:14px 8px;border-radius:18px;background:var(--c);color:var(--ink);text-align:center;text-decoration:none;font:800 15px var(--hf);transition:transform .2s;animation:mi .4s both;animation-delay:calc(var(--d)*.05s + .1s)}
+.mm nav a:hover{transform:translateY(-3px) rotate(-2deg)}
+.mm .ic{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--deep)}.mm .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mm nav a.mhire{grid-column:1/-1;flex-direction:row;min-height:60px;gap:10px;border:2px dashed #16877E}
+.mhire em{font:800 10px/1 var(--hf);font-style:normal;letter-spacing:.1em;text-transform:uppercase;background:#0F6F68;color:#fff;padding:5px 9px;border-radius:999px}
+.mm nav a.cta{grid-column:1/-1;flex-direction:row;min-height:52px;border-radius:999px}
+.mm nav a.cta i{font-style:normal}
+.mmd{position:absolute;right:-12px;bottom:-20px;width:52px;z-index:2;animation:sway2 4s ease-in-out infinite;pointer-events:none}
+@keyframes mpop{from{opacity:0;transform:scale(.85) translateY(-8px)}}
+@keyframes mi{from{opacity:0;transform:translateY(10px) scale(.9)}}
+@media(max-width:1200px){.hdr>.wrap{gap:14px}.ni{width:78px}.ni i{display:none}.pg a.hcta{padding:0 14px 0 12px;font-size:14px}}
+@media(max-width:1000px){
+.hdr{padding:6px 0 18px}
+.nav{display:none}
+.pg a.hcta{margin-left:auto}.mm{display:block}
+.hdr>.wrap{gap:12px}
+}
+@media(max-width:700px){
+.hdr{--btn:44px;padding:4px 0 18px}
+.logo{font-size:clamp(30px,9.6vw,38px)}
+.pg a.hcta{display:none}
+.mm{margin-left:auto}
+.mm summary{width:var(--btn);padding:0;border-radius:14px}
+.mm summary .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+
 /* hero */
 .hero{--sw:min(1120px,88vw);position:relative;background:var(--sky);padding:0}
 .hv{position:relative;height:max(calc(var(--sw)*.503),320px);overflow:hidden}
@@ -68,9 +125,35 @@ body{margin:0}
 .dh h2{margin:0;font:800 36px/1.2 var(--hf);color:var(--ink);text-shadow:0 2px 0 #fff;text-align:center}
 .dh::before,.dh::after{content:"";flex:0 1 230px;height:18px;background-image:radial-gradient(circle at 5px 5px,#F28A1E 2.2px,transparent 2.8px),radial-gradient(circle at 12px 12px,#FFC24A 2.2px,transparent 2.8px);background-size:14px 14px}
 @media(max-width:700px){.dh::before,.dh::after{flex-basis:24px}.dh h2{font-size:26px}}
-.pill{display:inline-flex;align-items:center;gap:10px;background:var(--deep);color:#fff!important;font:700 16px/1.1 var(--hf);padding:10px 24px 10px 12px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 var(--dd);min-height:46px;transition:transform .15s,box-shadow .15s}
+.pg a.pill{display:inline-flex;align-items:center;gap:10px;background:var(--deep);color:#fff;font:700 16px/1.1 var(--hf);padding:10px 24px 10px 12px;border-radius:999px;text-decoration:none;box-shadow:0 5px 0 var(--dd);min-height:46px;transition:transform .15s,box-shadow .15s}
 .pill i{width:24px;height:24px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;color:var(--deep);font-weight:800}
 .pill:hover{transform:translateY(3px);box-shadow:0 2px 0 var(--dd)}
+/* ===== Inquiry CTAs: one look everywhere ("Inquire now", "Get a quote" under Packages → #contact) ===== */
+.pg a.pill.go{min-height:56px;padding:12px 28px 12px 12px;font-size:17px;font-weight:800}
+.pill.go i{width:34px;height:34px;background:#fff}
+/* The inquiry CTA look, shared by every .go button: sunny gradient, raised 3D edge, a light sweep
+   every few seconds, and a press-down on hover/tap. Regular buttons (About Us, View all…) stay brown. */
+.pg a.go{position:relative;overflow:hidden;isolation:isolate;color:var(--ink);background:linear-gradient(180deg,#FFE58A 0%,#FFC53F 55%,#FFA62B 100%);text-shadow:0 1px 0 rgba(255,255,255,.45);box-shadow:0 5px 0 #D9800F,0 9px 18px rgba(217,128,15,.32),inset 0 2px 0 rgba(255,255,255,.75);transition:transform .15s,box-shadow .15s}
+.pg a.go:hover{transform:translateY(2px);box-shadow:0 3px 0 #D9800F,0 6px 12px rgba(217,128,15,.3),inset 0 2px 0 rgba(255,255,255,.75)}
+.pg a.go:active{transform:translateY(5px);box-shadow:0 0 0 #D9800F,inset 0 2px 0 rgba(255,255,255,.75)}
+.pg a.go:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+.go::after{content:"";position:absolute;z-index:-1;top:-30%;bottom:-30%;left:0;width:34%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:translateX(-120%) skewX(-20deg);animation:goShine 4.8s ease-in-out infinite;pointer-events:none}
+.go svg{width:20px;height:20px;fill:none;stroke:var(--deep);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sbar i,.mm nav a.cta i{animation:goNudge 1.6s ease-in-out infinite}
+@keyframes goShine{0%,62%{transform:translateX(-120%) skewX(-20deg)}100%{transform:translateX(420%) skewX(-20deg)}}
+@keyframes goNudge{50%{transform:translateX(4px)}}
+.fvcta{background:var(--sky);text-align:center;padding:26px 15px 6px}
+.fvcta p{margin:0 0 14px;font:600 15px/1.5 var(--hf);color:var(--ink)}
+.fvcta .fvq{margin:14px 0 0;font-size:14px;color:var(--mut)}
+.fvcta .fvq a{color:var(--deep);font-weight:800}
+.pg a.sbar{display:none}
+@media(max-width:700px){
+.fvcta{padding:22px 15px 4px}.fvcta p{font-size:14px}
+.pg a.sbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:28;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:999px;font:800 16px/1 var(--hf);text-decoration:none;transform:translateY(130%);opacity:0;transition:transform .35s ease,opacity .35s ease;pointer-events:none}
+.sbar i{font-style:normal}
+.pg a.go.sbar{box-shadow:0 5px 0 #D9800F,0 12px 26px rgba(60,30,10,.3),inset 0 2px 0 rgba(255,255,255,.75)}
+.pg a.sbar.on{transform:none;opacity:1;pointer-events:auto}
+}
 .bdg{position:absolute;z-index:3;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 18px/1 var(--hf);transform:rotate(-12deg);box-shadow:0 4px 0 rgba(0,0,0,.14);animation:wob 3.2s ease-in-out infinite}
 @keyframes wob{50%{transform:rotate(-4deg) scale(1.06)}}
 .mk{position:relative;display:inline-block;font:700 17px/1.4 var(--hf);padding:0 12px;z-index:0}
@@ -110,9 +193,7 @@ body{margin:0}
 .rv{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 45%}
 @keyframes rise{from{opacity:0;transform:translateY(46px) scale(.96)}to{opacity:1;transform:none}}
 }
-.mm{display:none}
-@media(max-width:1000px){.mm{display:block;position:absolute;right:15px;top:6px;z-index:20}.mm summary{list-style:none;cursor:pointer;min-height:44px;min-width:44px;display:grid;place-items:center;background:var(--deep);color:#fff;border-radius:999px;font:700 14px var(--hf);padding:0 18px}.mm summary::-webkit-details-marker{display:none}.mm nav{position:absolute;right:0;top:52px;background:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:8px;min-width:200px;display:grid}.mm a{padding:12px 14px;color:var(--ink);text-decoration:none;font:700 15px var(--hf);border-radius:8px;min-height:44px;display:flex;align-items:center}.mm a:hover{background:var(--sky)}}
-@media(max-width:700px){.dec:not(.hd) img{width:62px!important}.dec.snl img{width:84px!important}.dec.mo{display:block}.hv{height:max(calc(var(--sw)*1.05),380px)}.tiles{left:4%;top:auto;bottom:5%;max-width:92%}.sl img{object-position:50% 25%}.t{font-size:clamp(20px,7vw,30px)}.sec{padding:76px 0 64px}.rib{font-size:12px;letter-spacing:.2em;padding:10px 24px}.dh h2{font-size:24px}.logo b{font-size:28px}.logo i{font-size:9px;padding:6px 14px}.nw{grid-template-columns:64px 1fr}.nw img{width:64px}.cmp{font-size:13px}.cmp>div{padding:10px 10px}.cin{padding:20px 14px 24px 26px}.pill{font-size:15px}}
+@media(max-width:700px){.dec img{width:62px!important}.dec.snl img{width:84px!important}.dec.mo{display:block}.hv{height:max(calc(var(--sw)*1.05),380px)}.tiles{left:4%;top:auto;bottom:5%;max-width:92%}.sl img{object-position:50% 25%}.t{font-size:clamp(20px,7vw,30px)}.sec{padding:76px 0 64px}.rib{font-size:12px;letter-spacing:.2em;padding:10px 24px}.dh h2{font-size:24px}.nw{grid-template-columns:64px 1fr}.nw img{width:64px}.cmp{font-size:13px}.cmp>div{padding:10px 10px}.cin{padding:20px 14px 24px 26px}.pg a.pill{font-size:15px}}
 .cap{position:absolute;left:4.5%;bottom:9%;max-width:min(46%,520px);background:rgba(255,253,244,.94);border-radius:22px;padding:18px 24px 20px;box-shadow:0 8px 0 rgba(143,63,8,.18),0 14px 30px rgba(60,30,10,.18);z-index:4}
 .cap-k{display:inline-block;margin:0 0 10px;padding:8px 16px;border-radius:999px;background:var(--or);color:#fff;font:800 clamp(12px,1.25vw,17px)/1 var(--hf);letter-spacing:.18em;box-shadow:0 3px 0 #C9650B}
 .cap-t{margin:0;font:800 clamp(22px,2.9vw,40px)/1.15 var(--hf);color:var(--ink)}
@@ -134,29 +215,9 @@ body{margin:0}
 .fly{animation:fly 8s ease-in-out infinite}
 @keyframes fly{0%,100%{transform:translate(0,0) rotate(-4deg)}30%{transform:translate(26px,-14px) rotate(4deg)}60%{transform:translate(46px,6px) rotate(-3deg)}}
 .mo{display:none}
-@media(max-width:1300px){.hd{display:none}}
-@media(max-width:700px){.em{font-size:13px!important}.mm{top:2px}}
-.util a{position:relative;padding:6px 2px;transition:color .2s,transform .25s cubic-bezier(.3,1.6,.5,1)}
-.util a::before{transition:background .2s}
-.util a::after{content:"";position:absolute;left:18px;right:0;bottom:0;height:6px;background:radial-gradient(circle at 3px 3px,#F28A1E 1.6px,transparent 2px) 0 0/8px 6px repeat-x;transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.util a:hover{color:var(--deep);transform:translateY(-3px)}.util a:hover::after{transform:scaleX(1)}
-.util a:hover::before{animation:wig .6s ease;background:var(--yl)}
-@keyframes wig{30%{transform:rotate(-25deg) scale(1.3)}60%{transform:rotate(15deg) scale(1.2)}}
-.mm summary{display:flex;align-items:center}
-.mm .bars{display:grid;gap:4px;margin-right:8px}.mm .bars i{display:block;width:18px;height:3px;border-radius:3px;background:#fff;transition:transform .3s,opacity .3s}
-.mm[open] .bars i:nth-child(1){transform:translateY(7px) rotate(45deg)}.mm[open] .bars i:nth-child(2){opacity:0}.mm[open] .bars i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mm nav{width:min(340px,calc(100vw - 30px));background:#fff;border-radius:26px;border:3px solid var(--line);box-shadow:0 6px 0 rgba(143,63,8,.15),0 20px 40px rgba(60,30,10,.2);padding:16px;grid-template-columns:1fr 1fr;gap:10px;top:58px;animation:mpop .35s cubic-bezier(.3,1.5,.5,1) both;transform-origin:90% 0}
-@keyframes mpop{from{opacity:0;transform:scale(.85) translateY(-8px)}}
-.mm nav a{flex-direction:column;gap:8px;justify-content:center;text-align:center;padding:14px 8px;border-radius:18px;background:var(--c);font:800 15px var(--hf);min-height:96px;transition:transform .2s;animation:mi .4s both;animation-delay:calc(var(--d)*.05s + .1s)}
-@keyframes mi{from{opacity:0;transform:translateY(10px) scale(.9)}}
-.mm nav a:hover{background:var(--c);transform:translateY(-3px) rotate(-2deg)}
-.mm .ic{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--deep)}.mm .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.mm nav a.cta{grid-column:1/-1;flex-direction:row;background:var(--deep);color:#fff;min-height:48px;border-radius:999px}.mm nav a.cta:hover{background:var(--dd)}
-.mm nav a.cta i{font-style:normal}
-.mmd{position:absolute;right:-12px;bottom:-20px;width:52px;z-index:2;animation:sway2 4s ease-in-out infinite;pointer-events:none}
 @media(max-width:700px){.cap{left:4%;right:4%;bottom:6%;max-width:none;padding:12px 16px 14px}.cap-t{font-size:22px}.cap-s{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.cw{opacity:1}}
-.mct{display:none}.mbr{display:none}
+.mbr{display:none}
 .mh{}
 .ico{display:block;margin:0 auto 8px;width:64px;height:64px;object-fit:contain;transition:transform .35s cubic-bezier(.3,1.7,.5,1)}
 .ico.lg{width:84px;height:84px;margin-bottom:10px}
@@ -216,20 +277,7 @@ div:hover>.ico{transform:rotate(-8deg) scale(1.12)}
 
 
 @media(max-width:700px){
-.pg{--bw:clamp(52px,14.5vw,60px)}
-.toprow{display:none!important}
-header.hdr{padding-bottom:8px;min-height:calc(var(--bw) + 46px)}.mbr{display:inline}
-.nav{margin-top:14px!important}
-.logo{--ls:clamp(26px,8vw,34px);width:100%;box-sizing:border-box;padding:0 calc(var(--bw)*2 + 34px) 0 calc(14px + var(--ls) + 6px);text-align:left}.lsun{display:block!important;left:14px;top:-3px;width:var(--ls)}
-.logo b{font-size:clamp(14px,calc((100vw - 48px - var(--bw)*2 - var(--ls) - 6px)/9.2),28px)}
-.logo i{font-size:clamp(7px,2.2vw,9px);letter-spacing:.06em;white-space:nowrap;padding:6px 16px;margin-top:5px}
-.lm{display:none}
-.mm{top:10px;right:12px}
-.mm summary{flex-direction:column;justify-content:center;gap:5px;width:var(--bw);height:var(--bw);min-height:0;min-width:0;padding:0;border-radius:16px;font:800 clamp(8px,2.3vw,10px)/1 var(--hf);letter-spacing:.03em;text-transform:uppercase;box-shadow:0 4px 0 var(--dd)}
-.mm .bars{margin:0;width:22px;height:22px;justify-items:center;align-content:center}
-.mm nav{top:calc(var(--bw) + 12px)}
-.mct{display:flex;position:absolute;right:calc(12px + var(--bw) + 8px);top:10px;z-index:20;width:var(--bw);height:var(--bw);border-radius:16px;background:var(--or);color:#fff;flex-direction:column;align-items:center;justify-content:center;gap:5px;font:800 clamp(8px,2.3vw,10px)/1 var(--hf);letter-spacing:.03em;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 0 #C9650B}
-.mct svg{width:22px;height:22px}
+.mbr{display:inline}
 .hero{--sw:100vw}
 .hv{height:auto;display:grid;overflow:hidden}.sl{position:relative!important;grid-area:1/1;left:auto!important;margin-left:0!important;width:100%!important;height:auto!important;overflow:hidden}
 .sl>img{position:absolute;top:0;left:0;width:100%!important;height:calc(100vw*.74)!important;object-position:50% 30%}.sl>img{transform-origin:50% 100%}.sl.act>img{animation:kbm 10s ease-out both}
@@ -247,7 +295,7 @@ header.hdr{padding-bottom:8px;min-height:calc(var(--bw) + 46px)}.mbr{display:inl
 .dh h2{font-size:clamp(21px,6.6vw,27px)}
 .sec .wrap>div[style*="grid-template-columns"]{gap:26px 16px!important;margin-top:34px!important}
 .sec .rv>p{margin-top:12px!important}
-.dec:not(.hd) img{width:clamp(40px,12.5vw,56px)!important}
+.dec img{width:clamp(40px,12.5vw,56px)!important}
 .dec.snl img{width:clamp(64px,20vw,84px)!important}
 .dec.sunr{left:max(8px,2.5vw)!important;top:10px!important}.dec.v2.sunr{left:auto!important}
 .dec.f1{right:max(8px,2.5vw)!important;top:6px!important}
@@ -282,11 +330,6 @@ html.js .rv.in{opacity:1;transform:none}
 .hbar u{text-decoration:none;font-weight:800;border-bottom:2px solid var(--yl);padding-bottom:1px;white-space:nowrap}
 .hbar:hover u{border-bottom-color:#fff}
 @keyframes hbp{50%{transform:scale(1.07) rotate(-2deg)}}
-.pg .util a.hire{background:#0F6F68;color:#fff;padding:6px 12px 6px 10px;border-radius:999px}
-.util a.hire::before{background:var(--yl)}.util a.hire::after{display:none}
-.pg .util a.hire:hover{color:#fff;background:#0B5852}
-.mm nav a.mhire{grid-column:1/-1;flex-direction:row;min-height:60px;border:2px dashed #16877E;gap:10px}
-.mhire em{font:800 10px/1 var(--hf);font-style:normal;letter-spacing:.1em;text-transform:uppercase;background:#0F6F68;color:#fff;padding:5px 9px;border-radius:999px}
 .hq{text-align:center;margin:18px 0 0;font:600 14px/1.5 var(--hf);color:var(--mut)}
 .pg .hq a{color:#0F6F68;font-weight:800;white-space:nowrap}
 @keyframes kbm{from{transform:scale(1.1)}to{transform:scale(1)}}
@@ -307,8 +350,18 @@ html.js .rv.in{opacity:1;transform:none}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 html{scroll-behavior:smooth}
 .pg a:focus-visible,.pg button:focus-visible,.mm summary:focus-visible{outline:3px solid #1F9E94;outline-offset:3px}
+
+/* Contact destination: clear pre-launch status and no false email address. */
+.contact-intro{text-align:center;max-width:760px}
+.contact-intro .dh{margin-top:16px}
+.contact-intro>p{font-size:16px;max-width:630px;margin:18px auto 0}
+.contact-intro .contact-pending{margin:22px auto 0;padding:13px 18px;border:1px solid var(--line);border-radius:15px;background:var(--paper);font-size:13px;color:var(--mut)}
+@media(max-width:700px){.contact-intro>p{font-size:14px}.contact-intro .contact-pending{margin-top:16px}}
+
+.brand-flower-small{pointer-events:none}
+@media(max-width:700px){.brand-flower-small{display:none!important}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ChildCare", "@id": "https://littleguestclub.example/#org", "name": "Little Guest Club", "description": "Daycare-like event childcare with qualified sitters for weddings, birthday parties and corporate events in Metro Vancouver, BC.", "email": "hello@littleguestclub.example", "areaServed": "Metro Vancouver, BC, Canada", "url": "https://littleguestclub.example/", "image": "https://littleguestclub.example/images/event-childcare-story-time-garden-wedding-vancouver.jpg"}, {"@type": "WebSite", "name": "Little Guest Club", "url": "https://littleguestclub.example/"}, {"@type": "OfferCatalog", "name": "Event childcare packages", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "3-hour package"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "4-hour package"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kids corner"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Extra sitter"}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SafeGarden on Wheels","description":"On-site event childcare with qualified sitters for weddings, birthday parties and corporate events in Metro Vancouver, British Columbia."},{"@type":"Service","name":"On-site event childcare in Metro Vancouver","serviceType":"Event childcare, wedding childcare and kids corner supervision","provider":{"@type":"Organization","name":"SafeGarden on Wheels"},"areaServed":{"@type":"Place","name":"Metro Vancouver, British Columbia, Canada"},"description":"Qualified sitters provide on-site event childcare and age-appropriate kids corner activities at weddings, birthday parties and corporate events. Service details depend on the event and staffing arrangements.","hasOfferCatalog":{"@type":"OfferCatalog","name":"Event childcare options","itemListElement":[{"@type":"OfferCatalog","name":"3-hour event childcare package"},{"@type":"OfferCatalog","name":"4-hour event childcare package"},{"@type":"OfferCatalog","name":"Kids corner"},{"@type":"OfferCatalog","name":"Extra sitter"}]}}]}</script>
 </head>
 <body>
 <a href="#main" class="sr">Skip to content</a>
@@ -316,40 +369,39 @@ html{scroll-behavior:smooth}
 <a class="hbar" href="#join"><b>Now hiring</b><span>Qualified sitters<span class="lg"> for weekend and evening events in Metro Vancouver</span></span><u>Join our team →</u></a>
 
 <!-- HEADER -->
-<header class="hdr" style="position:relative;background:var(--sky);padding-top:10px;z-index:30">
+<header class="hdr">
 
 
-<div class="fl dec hd cl" style="left:max(6px,calc(50% - 575px - 150px));top:34px"><img loading="lazy" decoding="async" src="images/crayon-cloud-large-illustration.png" alt="" width="120" style="width:120px;height:auto;display:block"></div><div class="fl dec hd cl cl2" style="left:max(6px,calc(50% - 575px - 100px));top:100px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="70" style="width:70px;height:auto;display:block"></div><div class="fl dec hd sunr" style="right:max(6px,calc(50% - 575px - 140px));top:20px"><img loading="lazy" decoding="async" src="images/crayon-sun-illustration.png" alt="" width="120" style="width:120px;height:auto;display:block"></div>
 <div class="wrap">
-<div class="toprow" style="display:flex;justify-content:space-between;align-items:center;height:24px;gap:16px">
-<a href="mailto:hello@littleguestclub.example" class="hf em" style="font-weight:800;font-size:17px;color:var(--deep);text-decoration:none">hello@littleguestclub.example</a>
-<div class="util"><a href="#about">About</a><a href="#flow">Packages</a><a href="#journal">Pilot events</a><a class="hire" href="#join">Now hiring · Join our team</a><a href="mailto:hello@littleguestclub.example">Contact</a></div>
-</div>
-<a class="mct" href="mailto:hello@littleguestclub.example"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 8l8 6 8-6"/></svg>Contact</a>
-<details class="mm"><summary><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</summary><nav aria-label="Menu"><img loading="lazy" decoding="async" class="mmd" src="images/crayon-flower-illustration.png" alt="" width="56"><a href="#top" style="--c:#FFE6CC;--d:0"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></span>Home</a><a href="#about" style="--c:#DDF1EE;--d:1"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg></span>About</a><a href="#approach" style="--c:#FFE0E8;--d:2"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg></span>Approach</a><a href="#events" style="--c:#FFF1BF;--d:3"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3zM3 10h18M8 3v4M16 3v4"/></svg></span>Events</a><a href="#flow" style="--c:#E6F2D5;--d:4"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"/></svg></span>Packages</a><a href="#journal" style="--c:#FFDCC8;--d:5"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg></span>Pilot events</a><a class="mhire" href="#join" style="--c:#DDF4F1;--d:6"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a4 4 0 100-8 4 4 0 000 8zM2 21v-1a7 7 0 0114 0v1M19 8v6M16 11h6"/></svg></span>Join our team<em>Now hiring</em></a><a class="cta" href="mailto:hello@littleguestclub.example" style="--d:7"><i>→</i>Contact us</a></nav></details>
-<nav aria-label="Main" class="nav" style="margin-top:6px">
+
+<a class="logo" href="#top" aria-label="SafeGarden on Wheels, home"><img class="bd bd-cloud" src="images/brand-cloud.webp" alt="" width="176" height="106"><img class="bd bd-sun" src="images/brand-sun.webp" alt="" width="112" height="106"><span class="brand-primary">SafeGarden</span> <span class="brand-secondary">on Wheels<img class="bd bd-flower" src="images/brand-flower.webp" alt="" width="88" height="111"><svg class="bd-road" viewBox="0 -24 372 50" aria-hidden="true" focusable="false"><filter id="crayon" x="-20%" y="-30%" width="140%" height="160%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="2.4"/></filter><g fill="none" stroke-linecap="round" filter="url(#crayon)"><path class="bd-path" pathLength="1" d="M6 12C80 1 160 21 238 10S286 5 300 8" stroke="#F2A23A" stroke-width="6.5"/></g><g class="bd-wheel"><g fill="none" stroke="#8A4A22" stroke-linecap="round" filter="url(#crayon)"><circle cx="322" cy="2" r="19" stroke-width="4.5"/><circle cx="322" cy="2" r="3.4" fill="#8A4A22" stroke="none"/><path d="M322 -15v34M307.3 -6.5l29.4 17M307.3 10.5l29.4 -17" stroke-width="3"/></g></g><g class="bd-speed" fill="none" stroke="#F2A23A" stroke-linecap="round" stroke-width="4.5" filter="url(#crayon)"><path d="M348 -8h16"/><path d="M350 3h19"/></g></svg></span> <span class="brand-tag">EVENT CHILDCARE<span class="lm"> · VANCOUVER, BC</span></span></a>
+<nav aria-label="Main" class="nav">
 <a class="ni cur" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg><b>Home</b><i>Welcome</i></a><a class="ni " href="#about"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg><b>About</b><i>Who we are</i></a><a class="ni " href="#approach"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg><b>Approach</b><i>How we care</i></a>
-<a class="logo" href="#top" aria-label="Little Guest Club home"><img loading="lazy" decoding="async" class="lsun" src="images/crayon-sun-illustration.png" alt="" width="110" height="105"><b>Little Guest Club</b><i>EVENT CHILDCARE<span class="lm"> · METRO VANCOUVER</span></i></a>
 <a class="ni " href="#events"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3zM3 10h18M8 3v4M16 3v4"/></svg><b>Events</b><i>What we cover</i></a><a class="ni " href="#flow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg><b>Flow</b><i>Event day</i></a><a class="ni last" href="#journal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L17 4l3 3L8 19zM14 7l3 3"/></svg><b>Journal</b><i>News &amp; notes</i></a>
 </nav>
+<a class="hcta go" href="#contact"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5h14a2.5 2.5 0 012.5 2.5v8a2.5 2.5 0 01-2.5 2.5H11l-4.5 3.5V17.5H5A2.5 2.5 0 012.5 15V7A2.5 2.5 0 015 4.5z"/><path d="M8 10h8M8 13.5h5"/></svg><span>Inquire now</span></a>
+<details class="mm"><summary><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="lbl">Menu</span></summary><nav aria-label="Menu"><img loading="lazy" decoding="async" class="mmd" src="images/crayon-flower-illustration.png" alt="" width="56"><a href="#top" style="--c:#FFE6CC;--d:0"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></span>Home</a><a href="#about" style="--c:#DDF1EE;--d:1"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 11v6M12 7.5v.01"/></svg></span>About</a><a href="#approach" style="--c:#FFE0E8;--d:2"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 9c0 6-8 11-8 11z"/></svg></span>Approach</a><a href="#events" style="--c:#FFF1BF;--d:3"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V8a3 3 0 013-3zM3 10h18M8 3v4M16 3v4"/></svg></span>Events</a><a href="#flow" style="--c:#E6F2D5;--d:4"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0"/></svg></span>Packages</a><a href="#journal" style="--c:#FFDCC8;--d:5"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2"/></svg></span>Pilot events</a><a class="mhire" href="#join" style="--c:#DDF4F1;--d:6"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a4 4 0 100-8 4 4 0 000 8zM2 21v-1a7 7 0 0114 0v1M19 8v6M16 11h6"/></svg></span>Join our team<em>Now hiring</em></a><a class="cta go" href="#contact" style="--d:7"><i>→</i>Inquire now</a></nav></details>
 </div>
 </header>
 
 <main id="main">
 <!-- HERO -->
-<section class="hero" aria-label="Highlights" id="top"><h1 class="sr">Little Guest Club – daycare-like event childcare with qualified sitters for weddings, parties and corporate events in Metro Vancouver</h1>
+<section class="hero" aria-label="Highlights" id="top"><h1 class="sr">SafeGarden on Wheels — on-site event childcare for weddings, birthday parties and corporate events in Metro Vancouver</h1>
 <div class="hv">
-<div class="sl act" style="transform:none;opacity:1;z-index:3;" aria-hidden="false"><img src="images/event-childcare-story-time-garden-wedding-vancouver.jpg" alt="A sitter reading to children at a garden wedding" width="1400" height="700" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block"><div class="cap"><p class="cap-k">EVENT CHILDCARE</p><p class="cap-t"><span class="cw " style="--k:0">Daycare-like</span> <span class="cw " style="--k:1">care</span> <span class="cw " style="--k:2">for</span> <span class="cw " style="--k:3">your</span> <span class="cw hl" style="--k:4">event</span> </p><p class="cap-s">Qualified sitters for weddings, parties and corporate events.</p></div><i class="spk" style="left:62%;top:8%"></i><i class="spk" style="left:6%;top:66%;width:18px;height:18px;animation-delay:-.9s"></i></div><div class="sl " style="transform:translateX(calc(var(--sw) + 22px)) scale(.94);opacity:0.75;z-index:2;" aria-hidden="true"><img src="images/wedding-kids-corner-crafts-qualified-sitter-vancouver.jpg" alt="A sitter helping children with crafts at a wedding kids corner" width="1400" height="700" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"><div class="cap"><p class="cap-k">TRUST</p><p class="cap-t"><span class="cw " style="--k:0">Every</span> <span class="cw " style="--k:1">sitter</span> <span class="cw " style="--k:2">is</span> <span class="cw hl" style="--k:3">qualified</span> </p><p class="cap-s">Childcare qualifications, emergency info and clear parent rules.</p></div><i class="spk" style="left:62%;top:8%"></i><i class="spk" style="left:6%;top:66%;width:18px;height:18px;animation-delay:-.9s"></i></div><div class="sl " style="transform:translateX(calc(var(--sw) * -1 - 22px)) scale(.94);opacity:0.75;z-index:2;" aria-hidden="true"><img src="images/garden-party-parachute-play-event-sitter-vancouver.jpg" alt="A sitter playing with a parachute with children at a garden party" width="1400" height="700" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"><div class="cap"><p class="cap-k">CALM</p><p class="cap-t"><span class="cw " style="--k:0">Parents</span> <span class="cw " style="--k:1">enjoy</span> <span class="cw " style="--k:2">the</span> <span class="cw " style="--k:3">party,</span> <span class="cw " style="--k:4">kids</span> <span class="cw hl" style="--k:5">play</span> </p><p class="cap-s">A defined play space at your venue, run by people who do this every day.</p></div><i class="spk" style="left:62%;top:8%"></i><i class="spk" style="left:6%;top:66%;width:18px;height:18px;animation-delay:-.9s"></i></div><button class="arr" type="button" aria-label="Previous slide" id="prev" style="left:max(10px,calc(50% - var(--sw)/2 - 26px))"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+<div class="sl act" style="transform:none;opacity:1;z-index:3;" aria-hidden="false"><img src="images/event-childcare-story-time-garden-wedding-vancouver.jpg" alt="A sitter reading to children at a garden wedding" width="1400" height="700" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block"><div class="cap"><p class="cap-k">ON-SITE EVENT CHILDCARE · METRO VANCOUVER</p><p class="cap-t"><span class="cw " style="--k:0">Daycare-like</span> <span class="cw " style="--k:1">care</span> <span class="cw " style="--k:2">for</span> <span class="cw " style="--k:3">your</span> <span class="cw hl" style="--k:4">event</span> </p><p class="cap-s">Qualified sitters for weddings, birthday parties and corporate events across Metro Vancouver.</p></div><i class="spk" style="left:62%;top:8%"></i><i class="spk" style="left:6%;top:66%;width:18px;height:18px;animation-delay:-.9s"></i></div><div class="sl " style="transform:translateX(calc(var(--sw) + 22px)) scale(.94);opacity:0.75;z-index:2;" aria-hidden="true"><img src="images/wedding-kids-corner-crafts-qualified-sitter-vancouver.jpg" alt="A sitter helping children with crafts at a wedding kids corner" width="1400" height="700" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"><div class="cap"><p class="cap-k">TRUST</p><p class="cap-t"><span class="cw " style="--k:0">Every</span> <span class="cw " style="--k:1">sitter</span> <span class="cw " style="--k:2">is</span> <span class="cw hl" style="--k:3">qualified</span> </p><p class="cap-s">Childcare qualifications, emergency info and clear parent rules.</p></div><i class="spk" style="left:62%;top:8%"></i><i class="spk" style="left:6%;top:66%;width:18px;height:18px;animation-delay:-.9s"></i></div><div class="sl " style="transform:translateX(calc(var(--sw) * -1 - 22px)) scale(.94);opacity:0.75;z-index:2;" aria-hidden="true"><img src="images/garden-party-parachute-play-event-sitter-vancouver.jpg" alt="A sitter playing with a parachute with children at a garden party" width="1400" height="700" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"><div class="cap"><p class="cap-k">CALM</p><p class="cap-t"><span class="cw " style="--k:0">Parents</span> <span class="cw " style="--k:1">enjoy</span> <span class="cw " style="--k:2">the</span> <span class="cw " style="--k:3">party,</span> <span class="cw " style="--k:4">kids</span> <span class="cw hl" style="--k:5">play</span> </p><p class="cap-s">A defined play space at your venue, run by people who do this every day.</p></div><i class="spk" style="left:62%;top:8%"></i><i class="spk" style="left:6%;top:66%;width:18px;height:18px;animation-delay:-.9s"></i></div><button class="arr" type="button" aria-label="Previous slide" id="prev" style="left:max(10px,calc(50% - var(--sw)/2 - 26px))"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
 <button class="arr" type="button" aria-label="Next slide" id="next" style="right:max(10px,calc(50% - var(--sw)/2 - 26px))"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
 <div class="wvb" style="top:0;transform:scaleY(-1);z-index:6" aria-hidden="true"><svg class="wvs " viewBox="0 0 2880 40" preserveAspectRatio="none"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFE6CC"/></svg></div><div class="wvb" style="bottom:-1px;z-index:6" aria-hidden="true"><svg class="wvs r" viewBox="0 0 2880 40" preserveAspectRatio="none"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFE6CC"/></svg></div>
 </div>
 <div class="dots"><button type="button" class="on" aria-label="Go to slide 1"></button><button type="button" class="" aria-label="Go to slide 2"></button><button type="button" class="" aria-label="Go to slide 3"></button></div>
 </section>
 
+<!-- BOOKING CTA (first view) -->
+<div class="fvcta"><p>Comparing options? Ask us about pricing, dates and ages. No commitment.</p><a class="pill go" href="#contact"><i><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5h14a2.5 2.5 0 012.5 2.5v8a2.5 2.5 0 01-2.5 2.5H11l-4.5 3.5V17.5H5A2.5 2.5 0 012.5 15V7A2.5 2.5 0 015 4.5z"/><path d="M8 10h8M8 13.5h5"/></svg></i>Inquire now</a><p class="fvq">Already have a date? <a href="#contact">Check availability</a></p></div>
+
 <!-- GOAL -->
 <section class="sec sky" style="padding-top:60px" id="goal"><div class="fl dec g1 sunr" style="left:max(12px,calc(50% - 560px));top:34px"><img loading="lazy" decoding="async" src="images/crayon-sun-illustration.png" alt="" width="110" height="105" style="width:110px;height:auto;display:block"></div><div class="fl dec g2 cl" style="left:max(100px,calc(50% - 430px));top:22px"><img loading="lazy" decoding="async" src="images/crayon-cloud-small-illustration.png" alt="" width="120" height="71" style="width:120px;height:auto;display:block"></div><div class="fl dec g3 fly" style="right:max(12px,calc(50% - 560px));top:36px"><img loading="lazy" decoding="async" src="images/crayon-bee-illustration.png" alt="" width="84" height="113" style="width:84px;height:auto;display:block"></div><div class="wrap">
 <div class="rv" style="text-align:center"><span class="rib">Our Goal</span><div class="dh"><h2>A better event for every guest</h2></div>
-<p style="max-width:690px;margin:18px auto 0;font-size:15px">Event childcare with the standards parents expect from daycare. Every sitter is qualified, and the care is planned, calm and safe, right where your event happens.</p></div>
+<p style="max-width:690px;margin:18px auto 0;font-size:15px">On-site event childcare in Metro Vancouver, with the care and attention parents expect. Our qualified sitters support children with planned activities at weddings, birthday parties and corporate events.</p></div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:36px 20px;margin-top:36px">
 
 <div class="rv" style="position:relative;text-align:center;max-width:340px;margin:0 auto;width:100%">
@@ -430,12 +482,12 @@ html{scroll-behavior:smooth}
 </div>
 
 </div>
-<div style="text-align:center;margin-top:44px"><a class="pill" href="#approach"><i>→</i>Our Approach</a></div><div class="wk" aria-hidden="true"><img loading="lazy" decoding="async" class="b" src="images/crayon-footprint-path-dots.webp" alt="" width="1300" height="151"><img loading="lazy" decoding="async" class="sp st" style="left:0.950%;top:10.612%;width:11.021%;--i:0" src="images/crayon-footprint-step-1.webp" alt="" width="143" height="123"><img loading="lazy" decoding="async" class="sp st" style="left:16.200%;top:13.061%;width:14.014%;--i:1" src="images/crayon-footprint-step-2.webp" alt="" width="182" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:28.219%;top:12.245%;width:9.976%;--i:2" src="images/crayon-footprint-step-3.webp" alt="" width="130" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:41.093%;top:17.959%;width:15.487%;--i:3" src="images/crayon-footprint-step-4.webp" alt="" width="201" height="116"><img loading="lazy" decoding="async" class="sp st" style="left:71.306%;top:27.755%;width:17.577%;--i:4" src="images/crayon-footprint-step-5.webp" alt="" width="229" height="109"><img loading="lazy" decoding="async" class="sp st" style="left:86.983%;top:13.469%;width:11.259%;--i:5" src="images/crayon-footprint-step-6.webp" alt="" width="146" height="102"></div>
+<div style="text-align:center;margin-top:44px"><a class="pill go" href="#contact"><i><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5h14a2.5 2.5 0 012.5 2.5v8a2.5 2.5 0 01-2.5 2.5H11l-4.5 3.5V17.5H5A2.5 2.5 0 012.5 15V7A2.5 2.5 0 015 4.5z"/><path d="M8 10h8M8 13.5h5"/></svg></i>Inquire now</a></div><div class="wk" aria-hidden="true"><img loading="lazy" decoding="async" class="b" src="images/crayon-footprint-path-dots.webp" alt="" width="1300" height="151"><img loading="lazy" decoding="async" class="sp st" style="left:0.950%;top:10.612%;width:11.021%;--i:0" src="images/crayon-footprint-step-1.webp" alt="" width="143" height="123"><img loading="lazy" decoding="async" class="sp st" style="left:16.200%;top:13.061%;width:14.014%;--i:1" src="images/crayon-footprint-step-2.webp" alt="" width="182" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:28.219%;top:12.245%;width:9.976%;--i:2" src="images/crayon-footprint-step-3.webp" alt="" width="130" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:41.093%;top:17.959%;width:15.487%;--i:3" src="images/crayon-footprint-step-4.webp" alt="" width="201" height="116"><img loading="lazy" decoding="async" class="sp st" style="left:71.306%;top:27.755%;width:17.577%;--i:4" src="images/crayon-footprint-step-5.webp" alt="" width="229" height="109"><img loading="lazy" decoding="async" class="sp st" style="left:86.983%;top:13.469%;width:11.259%;--i:5" src="images/crayon-footprint-step-6.webp" alt="" width="146" height="102"></div>
 </div>
 </section>
 
 <!-- EVENTS -->
-<section class="sec cream evs" id="events"><div class="fl dec v1 flw" style="left:max(14px,calc(50% - 620px));top:60px;--w:90px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="90" height="114" style="width:90px;height:auto;display:block"></div>
+<section class="sec cream evs" id="events"><div class="fl dec v2 brand-flower-small" aria-hidden="true" style="right:max(14px,calc(50% - 510px));top:142px"><img loading="lazy" decoding="async" src="images/crayon-orange-flower-2-illustration.webp" alt="" width="42" height="42" style="width:42px;height:auto;display:block"></div><div class="fl dec v1 flw" style="left:max(14px,calc(50% - 620px));top:60px;--w:90px"><img loading="lazy" decoding="async" src="images/crayon-flower-illustration.png" alt="" width="90" height="114" style="width:90px;height:auto;display:block"></div>
 <svg class="wv" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#FFF9EA"/></svg>
 <div class="fl dec bln" style="right:5%;top:18px"><img loading="lazy" decoding="async" src="images/crayon-party-balloons-confetti-illustration.webp" alt="" width="110" height="120" style="width:110px;height:auto;display:block"></div>
 <div class="wrap">
@@ -453,7 +505,7 @@ html{scroll-behavior:smooth}
 <div class="rv"><div class="pl" style="--r:3.5deg"><img loading="lazy" decoding="async" src="images/baby-shower-ring-toss-kids-sitter-event-childcare-vancouver.jpg" alt="Children playing ring toss with a sitter at a baby shower" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px"><div style="margin-top:12px"><span class="mk">Showers &amp; reunions</span></div></div></div>
 
 </div>
-<div style="text-align:center;margin-top:48px"><a class="pill" href="#events"><i>→</i>See other events</a></div>
+<div style="text-align:center;margin-top:48px"><a class="pill go" href="#contact"><i><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5h14a2.5 2.5 0 012.5 2.5v8a2.5 2.5 0 01-2.5 2.5H11l-4.5 3.5V17.5H5A2.5 2.5 0 012.5 15V7A2.5 2.5 0 015 4.5z"/><path d="M8 10h8M8 13.5h5"/></svg></i>Inquire now</a></div>
 </div>
 </section>
 
@@ -466,7 +518,7 @@ html{scroll-behavior:smooth}
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:24px;margin-top:40px">
 <div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" class="ico lg" src="images/icon-event-plan-checklist-clipboard.webp" alt="" width="84" height="84"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">3h</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">3-hour package</h3><p style="margin:0;font-size:14px;color:var(--mut)">A focused window, such as the ceremony and speeches.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" class="ico lg" src="images/icon-caring-hands-heart.webp" alt="" width="84" height="84"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">4h</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">4-hour package</h3><p style="margin:0;font-size:14px;color:var(--mut)">More time, from ceremony through dinner and dancing.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" class="ico lg" src="images/icon-kids-corner-play-tent.webp" alt="" width="84" height="84"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">Kids corner</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">A space of their own</h3><p style="margin:0;font-size:14px;color:var(--mut)">A defined play area with toys and activities, set up for the children who are coming.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" class="ico lg" src="images/icon-sitter-with-two-children.webp" alt="" width="84" height="84"><p class="hf" style="margin:0;font-size:38px;font-weight:800;color:var(--deep);line-height:1">+1</p><h3 class="hf" style="margin:6px 0 8px;font-size:20px">Extra sitter</h3><p style="margin:0;font-size:14px;color:var(--mut)">Add a sitter when more children or a wider age range attend.</p></div>
 </div>
-<div style="text-align:center;margin-top:40px"><a class="pill" href="mailto:hello@littleguestclub.example"><i>→</i>Ask for a quote</a></div><div class="wk" aria-hidden="true"><img loading="lazy" decoding="async" class="b" src="images/crayon-shoe-path-dots.webp" alt="" width="1300" height="220"><img loading="lazy" decoding="async" class="sp st" style="left:0.484%;top:26.934%;width:18.402%;--i:0" src="images/crayon-shoe-footprint-step-1.webp" alt="" width="239" height="161"><img loading="lazy" decoding="async" class="sp st" style="left:1.308%;top:5.158%;width:5.424%;--i:1" src="images/crayon-shoe-footprint-step-2.webp" alt="" width="71" height="69"><img loading="lazy" decoding="async" class="sp st" style="left:22.567%;top:26.648%;width:6.877%;--i:2" src="images/crayon-shoe-footprint-step-3.webp" alt="" width="89" height="110"><img loading="lazy" decoding="async" class="sp st" style="left:27.700%;top:35.530%;width:7.361%;--i:3" src="images/crayon-shoe-footprint-step-4.webp" alt="" width="96" height="118"><img loading="lazy" decoding="async" class="sp st" style="left:39.031%;top:0.000%;width:5.375%;--i:4" src="images/crayon-shoe-footprint-step-5.webp" alt="" width="70" height="65"><img loading="lazy" decoding="async" class="sp st" style="left:41.211%;top:13.467%;width:15.012%;--i:5" src="images/crayon-shoe-footprint-step-6.webp" alt="" width="195" height="159"><img loading="lazy" decoding="async" class="sp st" style="left:63.487%;top:28.940%;width:7.070%;--i:6" src="images/crayon-shoe-footprint-step-7.webp" alt="" width="92" height="115"><img loading="lazy" decoding="async" class="sp st" style="left:68.910%;top:45.845%;width:9.346%;--i:7" src="images/crayon-shoe-footprint-step-8.webp" alt="" width="122" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:79.855%;top:17.192%;width:16.610%;--i:8" src="images/crayon-shoe-footprint-step-9.webp" alt="" width="216" height="144"></div><div class="mq" aria-hidden="true"><div class="mt"><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/wedding-reception-kids-bubbles-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/birthday-party-cake-event-sitter-kids-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1deg"><img loading="lazy" decoding="async" src="images/wedding-guests-relax-while-kids-play-event-childcare.jpg" alt="" width="288" height="216"></figure><figure style="--r:2deg"><img loading="lazy" decoding="async" src="images/corporate-family-day-kids-games-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1.5deg"><img loading="lazy" decoding="async" src="images/qualified-sitter-reading-to-children-wedding-event.jpg" alt="" width="288" height="216"></figure><figure style="--r:1deg"><img loading="lazy" decoding="async" src="images/baby-shower-ring-toss-kids-sitter-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/sitter-preparing-kids-corner-wedding-reception.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/parent-hands-child-to-qualified-sitter-event.jpg" alt="" width="288" height="216"></figure><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/wedding-reception-kids-bubbles-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/birthday-party-cake-event-sitter-kids-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1deg"><img loading="lazy" decoding="async" src="images/wedding-guests-relax-while-kids-play-event-childcare.jpg" alt="" width="288" height="216"></figure><figure style="--r:2deg"><img loading="lazy" decoding="async" src="images/corporate-family-day-kids-games-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1.5deg"><img loading="lazy" decoding="async" src="images/qualified-sitter-reading-to-children-wedding-event.jpg" alt="" width="288" height="216"></figure><figure style="--r:1deg"><img loading="lazy" decoding="async" src="images/baby-shower-ring-toss-kids-sitter-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/sitter-preparing-kids-corner-wedding-reception.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/parent-hands-child-to-qualified-sitter-event.jpg" alt="" width="288" height="216"></figure></div></div>
+<div style="text-align:center;margin-top:40px"><a class="pill go" href="#contact"><i><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5h14a2.5 2.5 0 012.5 2.5v8a2.5 2.5 0 01-2.5 2.5H11l-4.5 3.5V17.5H5A2.5 2.5 0 012.5 15V7A2.5 2.5 0 015 4.5z"/><path d="M8 10h8M8 13.5h5"/></svg></i>Get a quote</a></div><div class="wk" aria-hidden="true"><img loading="lazy" decoding="async" class="b" src="images/crayon-shoe-path-dots.webp" alt="" width="1300" height="220"><img loading="lazy" decoding="async" class="sp st" style="left:0.484%;top:26.934%;width:18.402%;--i:0" src="images/crayon-shoe-footprint-step-1.webp" alt="" width="239" height="161"><img loading="lazy" decoding="async" class="sp st" style="left:1.308%;top:5.158%;width:5.424%;--i:1" src="images/crayon-shoe-footprint-step-2.webp" alt="" width="71" height="69"><img loading="lazy" decoding="async" class="sp st" style="left:22.567%;top:26.648%;width:6.877%;--i:2" src="images/crayon-shoe-footprint-step-3.webp" alt="" width="89" height="110"><img loading="lazy" decoding="async" class="sp st" style="left:27.700%;top:35.530%;width:7.361%;--i:3" src="images/crayon-shoe-footprint-step-4.webp" alt="" width="96" height="118"><img loading="lazy" decoding="async" class="sp st" style="left:39.031%;top:0.000%;width:5.375%;--i:4" src="images/crayon-shoe-footprint-step-5.webp" alt="" width="70" height="65"><img loading="lazy" decoding="async" class="sp st" style="left:41.211%;top:13.467%;width:15.012%;--i:5" src="images/crayon-shoe-footprint-step-6.webp" alt="" width="195" height="159"><img loading="lazy" decoding="async" class="sp st" style="left:63.487%;top:28.940%;width:7.070%;--i:6" src="images/crayon-shoe-footprint-step-7.webp" alt="" width="92" height="115"><img loading="lazy" decoding="async" class="sp st" style="left:68.910%;top:45.845%;width:9.346%;--i:7" src="images/crayon-shoe-footprint-step-8.webp" alt="" width="122" height="111"><img loading="lazy" decoding="async" class="sp st" style="left:79.855%;top:17.192%;width:16.610%;--i:8" src="images/crayon-shoe-footprint-step-9.webp" alt="" width="216" height="144"></div><div class="mq" aria-hidden="true"><div class="mt"><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/wedding-reception-kids-bubbles-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/birthday-party-cake-event-sitter-kids-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1deg"><img loading="lazy" decoding="async" src="images/wedding-guests-relax-while-kids-play-event-childcare.jpg" alt="" width="288" height="216"></figure><figure style="--r:2deg"><img loading="lazy" decoding="async" src="images/corporate-family-day-kids-games-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1.5deg"><img loading="lazy" decoding="async" src="images/qualified-sitter-reading-to-children-wedding-event.jpg" alt="" width="288" height="216"></figure><figure style="--r:1deg"><img loading="lazy" decoding="async" src="images/baby-shower-ring-toss-kids-sitter-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/sitter-preparing-kids-corner-wedding-reception.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/parent-hands-child-to-qualified-sitter-event.jpg" alt="" width="288" height="216"></figure><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/wedding-reception-kids-bubbles-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/birthday-party-cake-event-sitter-kids-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1deg"><img loading="lazy" decoding="async" src="images/wedding-guests-relax-while-kids-play-event-childcare.jpg" alt="" width="288" height="216"></figure><figure style="--r:2deg"><img loading="lazy" decoding="async" src="images/corporate-family-day-kids-games-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-1.5deg"><img loading="lazy" decoding="async" src="images/qualified-sitter-reading-to-children-wedding-event.jpg" alt="" width="288" height="216"></figure><figure style="--r:1deg"><img loading="lazy" decoding="async" src="images/baby-shower-ring-toss-kids-sitter-event-childcare-vancouver.jpg" alt="" width="288" height="216"></figure><figure style="--r:-2deg"><img loading="lazy" decoding="async" src="images/sitter-preparing-kids-corner-wedding-reception.jpg" alt="" width="288" height="216"></figure><figure style="--r:1.5deg"><img loading="lazy" decoding="async" src="images/parent-hands-child-to-qualified-sitter-event.jpg" alt="" width="288" height="216"></figure></div></div>
 </div>
 </section>
 
@@ -500,7 +552,7 @@ html{scroll-behavior:smooth}
 <div class="rv card" style="display:flex;gap:18px;align-items:center;padding:18px 22px"><span class="nm" style="background:#16877E">1</span><div><p class="hf" style="margin:0;font-size:20px;font-weight:800">20 planners and venues</p><p style="margin:0;font-size:14px;color:var(--mut)">Asking if child guests are a real problem.</p></div></div><div class="rv card" style="display:flex;gap:18px;align-items:center;padding:18px 22px"><span class="nm" style="background:#16877E">2</span><div><p class="hf" style="margin:0;font-size:20px;font-weight:800">10 parents and hosts</p><p style="margin:0;font-size:14px;color:var(--mut)">Asking how they handle kids at events now.</p></div></div><div class="rv card" style="display:flex;gap:18px;align-items:center;padding:18px 22px"><span class="nm" style="background:#16877E">3</span><div><p class="hf" style="margin:0;font-size:20px;font-weight:800">3 simple packages</p><p style="margin:0;font-size:14px;color:var(--mut)">Asking which one feels useful and fairly priced.</p></div></div><div class="rv card" style="display:flex;gap:18px;align-items:center;padding:18px 22px"><span class="nm" style="background:#16877E">4</span><div><p class="hf" style="margin:0;font-size:20px;font-weight:800">One pilot event</p><p style="margin:0;font-size:14px;color:var(--mut)">Proving the service before investing more.</p></div></div>
 </div>
 <p class="hf rv" style="text-align:center;font-size:24px;font-weight:600;margin:36px 0 22px">Do not wait for the perfect plan. Talk to people, teach the idea, and test it.</p>
-<div style="text-align:center"><a class="pill" href="mailto:hello@littleguestclub.example"><i>→</i>Join a pilot</a></div>
+<div style="text-align:center"><a class="pill" href="#contact"><i>→</i>Join a pilot</a></div>
 </div>
 </section>
 
@@ -513,23 +565,36 @@ html{scroll-behavior:smooth}
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:20px;margin-top:36px">
 <div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" src="images/badge-childcare-qualification-graduation-cap.webp" alt="" width="64" height="64" style="width:64px;height:64px;display:block;margin:0 auto 10px"><h3 class="hf" style="margin:0 0 6px;font-size:20px;font-weight:800;color:var(--deep)">Who we are looking for</h3><p style="margin:0;font-size:14px;color:var(--mut)">Childcare qualifications and hands-on experience with young children. First aid and a background check are part of our process.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" src="images/icon-event-plan-checklist-clipboard.webp" alt="" width="64" height="64" style="width:64px;height:64px;display:block;margin:0 auto 10px"><h3 class="hf" style="margin:0 0 6px;font-size:20px;font-weight:800;color:var(--deep)">How it works</h3><p style="margin:0;font-size:14px;color:var(--mut)">Event by event, mostly weekends and evenings, about 3 to 4 hours each. The plan and the kids corner are prepared in advance. Say yes only to the dates that suit you.</p></div><div class="rv card" style="text-align:center"><img loading="lazy" decoding="async" src="images/icon-caring-hands-heart.webp" alt="" width="64" height="64" style="width:64px;height:64px;display:block;margin:0 auto 10px"><h3 class="hf" style="margin:0 0 6px;font-size:20px;font-weight:800;color:var(--deep)">How to apply</h3><p style="margin:0;font-size:14px;color:var(--mut)">Email us a few lines about your qualifications, your experience and the areas you can travel to. No formal resume needed to start.</p></div>
 </div>
-<div class="rv" style="text-align:center;margin-top:34px"><a class="pill" href="mailto:hello@littleguestclub.example?subject=Sitter%20application"><i>→</i>Apply by email</a></div>
+<div class="rv" style="text-align:center;margin-top:34px"><a class="pill" href="#contact"><i>→</i>Ask about joining</a></div>
 </div>
 <div class="grs" aria-hidden="true"><span class="lbw"><img loading="lazy" decoding="async" src="images/crayon-ladybug-illustration.webp" alt="" width="99" height="83"></span><div class="gz"><img loading="lazy" decoding="async" class="b gx gl" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b gx gr" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="b" src="images/crayon-grass-border-illustration.webp" alt="" width="1300" height="177"><img loading="lazy" decoding="async" class="sp fw" style="left:2.565%;top:6.164%;width:9.701%;--i:0" src="images/crayon-pink-flower-illustration.webp" alt="" width="126" height="111"><img loading="lazy" decoding="async" class="sp fw" style="left:11.707%;top:33.219%;width:7.090%;--i:1" src="images/crayon-yellow-flower-illustration.webp" alt="" width="92" height="72"><img loading="lazy" decoding="async" class="sp fw" style="left:27.379%;top:0.000%;width:9.795%;--i:3" src="images/crayon-orange-flower-illustration.webp" alt="" width="127" height="110"><img loading="lazy" decoding="async" class="sp fw" style="left:38.106%;top:32.192%;width:6.017%;--i:4" src="images/crayon-teal-flower-illustration.webp" alt="" width="78" height="70"><img loading="lazy" decoding="async" class="sp fw" style="left:48.321%;top:0.685%;width:10.168%;--i:5" src="images/crayon-pink-flower-2-illustration.webp" alt="" width="132" height="113"><img loading="lazy" decoding="async" class="sp fw" style="left:64.2%;top:14%;width:7.416%;--i:6" src="images/crayon-yellow-flower-2-illustration.webp" alt="" width="92" height="82"><img loading="lazy" decoding="async" class="sp fw" style="left:19.4%;top:18%;width:7.2%;--i:3" src="images/crayon-teal-flower-2-illustration.webp" alt="" width="96" height="85"><img loading="lazy" decoding="async" class="sp fw" style="left:70.616%;top:15.068%;width:7.090%;--i:7" src="images/crayon-yellow-flower-2-illustration.webp" alt="" width="92" height="82"><img loading="lazy" decoding="async" class="sp fw" style="left:78.965%;top:11.644%;width:7.416%;--i:8" src="images/crayon-teal-flower-2-illustration.webp" alt="" width="96" height="85"><img loading="lazy" decoding="async" class="sp fw" style="left:90.112%;top:8.904%;width:7.836%;--i:9" src="images/crayon-orange-flower-2-illustration.webp" alt="" width="102" height="99"></div></div>
 </section>
 
+
+<!-- CONTACT: replace the owner-contact placeholder before publishing. -->
+<section class="sec cream" id="contact" aria-label="Contact SafeGarden on Wheels">
+  <div class="wrap contact-intro">
+    <span class="rib">Get in touch</span>
+    <div class="dh"><h2>Let's make your event child-friendly</h2></div>
+    <p>Planning a wedding, birthday party, or corporate event in Metro Vancouver? Ask us about on-site childcare and kids' activities.</p>
+    <p class="contact-pending"><strong>Contact email coming soon.</strong> The official email address will be added before this website goes live.</p>
+  </div>
+</section>
+
 </main>
+<a class="sbar go" href="#contact" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4.5h14a2.5 2.5 0 012.5 2.5v8a2.5 2.5 0 01-2.5 2.5H11l-4.5 3.5V17.5H5A2.5 2.5 0 012.5 15V7A2.5 2.5 0 015 4.5z"/><path d="M8 10h8M8 13.5h5"/></svg><span>Inquire now</span><i>→</i></a>
+
 <!-- FOOTER -->
 <footer style="position:relative;margin-top:0;background:linear-gradient(#D96A0B,#B8500A);color:#FFEAD3;padding:56px 0 34px"><div class="wsn" aria-hidden="true"><img loading="lazy" decoding="async" src="images/crayon-snail-illustration.png" alt="" width="96" height="84"></div>
 <div style="position:absolute;left:0;right:0;top:-34px;height:40px;overflow:hidden" aria-hidden="true"><svg class="wave2" style="position:absolute;left:0;top:0" width="1920" height="40" viewBox="0 0 1920 40"><path d="M0 40V20q30-22 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V40Z" fill="#F6A04D"/></svg></div>
 <div style="position:absolute;left:0;right:0;top:-24px;height:30px;overflow:hidden;z-index:5" aria-hidden="true"><svg class="wave1" style="position:absolute;left:0;top:0" width="1920" height="30" viewBox="0 0 1920 30"><path d="M0 30V14q30-18 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0V30Z" fill="#D96A0B"/></svg></div>
 <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:30px;align-items:center">
-<div><p class="hf" style="margin:0 0 6px;font-weight:800;font-size:28px;color:#fff">Little Guest Club</p><p style="margin:0;font-size:14px;line-height:1.7">Event childcare · Metro Vancouver, BC<br><a href="mailto:hello@littleguestclub.example" style="color:#fff">hello@littleguestclub.example</a></p></div>
+<div><p class="hf" style="margin:0 0 6px;font-weight:800;font-size:28px;color:#fff">SafeGarden on Wheels</p><p style="margin:0;font-size:14px;line-height:1.7">Event childcare · Metro Vancouver, BC<br><span style="color:#fff">Contact email coming soon</span></p></div>
 <ul class="hf" style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 4px;font-size:15px;font-weight:600">
 <li><a href="#top" style="color:#fff;text-decoration:none;margin-right:10px">Home <span style="opacity:.6">/</span></a></li><li><a href="#about" style="color:#fff;text-decoration:none;margin-right:10px">About <span style="opacity:.6">/</span></a></li><li><a href="#approach" style="color:#fff;text-decoration:none;margin-right:10px">Approach <span style="opacity:.6">/</span></a></li><li><a href="#events" style="color:#fff;text-decoration:none;margin-right:10px">Events <span style="opacity:.6">/</span></a></li><li><a href="#flow" style="color:#fff;text-decoration:none;margin-right:10px">Flow <span style="opacity:.6">/</span></a></li><li><a href="#journal" style="color:#fff;text-decoration:none;margin-right:10px">Journal <span style="opacity:.6">/</span></a></li><li><a href="#join" style="color:#fff;text-decoration:none;margin-right:10px">Join us <span style="opacity:.6">/</span></a></li>
 </ul>
 </div>
-<div class="wrap" style="margin-top:26px;padding-top:16px;border-top:2px dotted rgba(255,255,255,.35);font-size:13px">© 2026 Little Guest Club. All rights reserved.</div>
+<div class="wrap" style="margin-top:26px;padding-top:16px;border-top:2px dotted rgba(255,255,255,.35);font-size:13px">© 2026 SafeGarden on Wheels. All rights reserved.</div>
 </footer>
 
 </div>
@@ -540,8 +605,9 @@ function go(k){var c=i,nx=((k%n)+n)%n,nt={};for(var j=0;j<n;j++){var a=role(j,c)
 function start(){clearInterval(t);if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;t=setInterval(function(){go(i+1)},6800)}
 document.getElementById('prev').onclick=function(){go(i-1);start()};document.getElementById('next').onclick=function(){go(i+1);start()};
 dots.forEach(function(b,j){b.onclick=function(){go(j);start()}});start();
-var m=document.querySelector('.mm');if(m)m.addEventListener('click',function(e){if(e.target.tagName==='A')m.removeAttribute('open')})})();
+var m=document.querySelector('.mm');if(m)m.addEventListener('click',function(e){if(e.target.closest('nav a'))m.removeAttribute('open')})})();
 (function(){var d=document.documentElement;if(window.CSS&&CSS.supports&&CSS.supports('animation-timeline:view()'))return;d.classList.add('js');var els=[].slice.call(document.querySelectorAll('.rv,.wk'));if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(function(e){io.observe(e)})})();
 </script>
+<script>(function(){var b=document.querySelector(".sbar"),f=document.querySelector(".fvcta"),m=document.querySelector(".mm");if(!b||!f||!("IntersectionObserver"in window))return;var past=false,end=false;function u(){var on=past&&!end&&!m.open;b.classList.toggle("on",on);b.setAttribute("aria-hidden",on?"false":"true");b.tabIndex=on?0:-1}new IntersectionObserver(function(e){past=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;u()}).observe(f);var seen=new Set();new IntersectionObserver(function(es){es.forEach(function(x){x.isIntersecting?seen.add(x.target):seen.delete(x.target)});end=seen.size>0;u()}).observe(document.getElementById("contact"));document.querySelectorAll("footer").forEach(function(el){new IntersectionObserver(function(es){es.forEach(function(x){x.isIntersecting?seen.add(x.target):seen.delete(x.target)});end=seen.size>0;u()}).observe(el)});m.addEventListener("toggle",u)})();</script>
 </body>
 </html>
